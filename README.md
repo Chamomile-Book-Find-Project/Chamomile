@@ -7,10 +7,3 @@
 # Front-end 
 
 # AI 
-
-ㅁㄴㅇㅁㄴㅇㅁㅇㅁㄴㅇㅁㄴㅇㄴ 
-<br>
-<br> 
-
-
-adasdasdasdasdas
