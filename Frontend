@@ -1,0 +1,196 @@
+<!-- Desktop - 1 -->
+<div class="frame" id="n20_15">
+	<!-- Component 2 -->
+	<div class="left center component" id="n20_24">
+		<!-- Rectangle 1 -->
+		<div class="scale rectangle" id="n20_21"></div>
+		<!-- Check this Out -->
+		<div class="scale text" id="n20_22">Check this Out</div>
+		<!-- 책크디스아웃 -->
+		<div class="scale text" id="n20_23">책크디스아웃</div>
+		<!-- 유사 도서 이미지 검색 서비스 -->
+		<div class="scale text" id="n20_29"> 유사 도서 이미지 검색 서비스</div>
+	</div>
+	<!-- Component 4 -->
+	<div class="left top component" id="n26_35">
+		<!-- Component 3 -->
+		<div class="scale frame" id="n27_38">
+			<!-- Rectangle 2 -->
+			<div class="scale rectangle" id="n27_39"></div>
+			<!-- 카메라로 검색 -->
+			<div class="scale text" id="n27_40">카메라로 검색</div>
+		</div>
+		<!-- 카메라 아이콘2 1 -->
+		<div class="scale rectangle" id="n26_33"></div>
+	</div>
+	<!-- Rectangle 3 -->
+	<div class="left top rectangle" id="n36_3"></div>
+</div>
+
+
+<!-- ———————      CSS      ——————— -->
+<style>
+
+/* Desktop - 1 */
+#n20_15 {
+
+	position: relative;
+	width: 1440px;
+	height: 1024px;
+
+	background: #FFFFFF;
+}
+ 
+	/* Component 2 */
+	#n20_24 {
+		position: absolute;
+		width: 1342px;
+		height: 161px;
+		left: 51px;
+		top: 19px;
+	}
+ 
+		/* Rectangle 1 */
+		#n20_21 {
+			position: absolute;
+			left: 0%;
+			right: 0%;
+			top: 11.18%;
+			bottom: -17.39%;
+
+			background: #E2BC83;
+			border: 1px solid #B54221;
+			box-sizing: border-box;
+			border-radius: 15px;
+		}
+ 
+		/* Check this Out */
+		#n20_22 {
+			position: absolute;
+			left: 2.53%;
+			right: 45.23%;
+			top: 34.16%;
+			bottom: -15.53%;
+			
+			font-family: Red Rose;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 96px;
+			line-height: 120px;
+
+			color: #B54221;
+		}
+ 
+		/* 책크디스아웃 */
+		#n20_23 {
+			position: absolute;
+			left: 44.26%;
+			right: 41.51%;
+			top: 29.81%;
+			bottom: 50.31%;
+
+			font-family: Actor;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 24px;
+			line-height: 29px;
+
+			color: #B54221;
+		}
+ 
+		/* 유사 도서 이미지 검색 서비스 */
+		#n20_29 {
+			position: absolute;
+			left: 73.47%;
+			right: 0%;
+			top: 85.09%;
+			bottom: -14.91%;
+
+			font-family: Actor;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 24px;
+			line-height: 29px;
+
+			color: #50340B;
+		}
+ 
+	/* Component 4 */
+	#n26_35 {
+		position: absolute;
+		width: 239px;
+		height: 244px;
+		left: 316px;
+		top: 405px;
+
+	}
+ 
+		/* Component 3 */
+		#n27_38 {
+			position: absolute;
+			left: 0%;
+			right: 0%;
+			top: 12.35%;
+			bottom: 0%;
+
+		}
+ 
+			/* Rectangle 2 */
+			#n27_39 {
+				position: absolute;
+				left: 0%;
+				right: 0%;
+				top: 76.17%;
+				bottom: 0%;
+
+				background: #E2BC83;
+				border: 1px solid #B54221;
+				box-sizing: border-box;
+				box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+				border-radius: 15px;
+			}
+ 
+			/* 카메라로 검색 */
+			#n27_40 {
+				position: absolute;
+				left: 20.5%;
+				top: 82.23%;
+				bottom: 5.61%;
+
+				font-family: Actor;
+				font-style: normal;
+				font-weight: normal;
+				font-size: 24px;
+				line-height: 29px;
+
+				color: #4E3417;
+			}
+ 
+		/* 카메라 아이콘2 1 */
+		#n26_33 {
+			position: absolute;
+			left: 0%;
+			right: 0%;
+			top: 0%;
+			bottom: 27.94%;
+
+			background-image: url("https://s3-alpha-sig.figma.com/img/9e74/823f/4525d281c70dc572cae507b0a7cba590?Expires=1644192000&Signature=hcFNO0dSkl-Mr7gsY-dg1zI5xCXrn8Trf7a78mTtGgDgViDVRWB~ttlrTjaP~URuM9u~VbEnkonfEmlabrpVFqHUUEzHWxE~O4xvPtNE~F-jziWVejzaP0diukZYFaov7O1H9x0vEvsuFE~GcmtlfI8JPFJTJiomCUUiBgxzun6rxjlkac7OOgSmOZSUC-bR62jdjb4TghoH~31zBJ4K4DU7yfx0n73LHMpO3bj0z7yDvMQL9ISFLaXqjjmfakJNc1SGtpL6HzAFvXMlKVjxzLEN6V~zptn1LEl0uS-w7o6iDd-KZixuwxc2zUnvimCSiB038LdVOPB9F8W47StchQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA");
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+			}
+ 
+	/* Rectangle 3 */
+	#n36_3 {
+		background-image: url("https://s3-alpha-sig.figma.com/img/efe6/7940/e718b6ce6f59bfba6cbf8034aa775e39?Expires=1644192000&Signature=VdmRZt4ngRtM5L98ydomr0br0fQJs7hRVKZ4fNiFI8eaq3u2mlj~H~Pv5CKVUe46egoeCIQmCeyK97Db-Sr6r9g0aQvEfJIqnG3xP4V6Og61l3yTj~XlYpSd6xPa6OsOfTVOOX-hlkal6gNpZdmnkQs4WPPq97hvvL1zdzzdxKs7-atmk6bm4hg~p3y-hzaIbco-bPCiID-IntbI-INjqenUgIYy5E78XoLMt-EnLQdBqX-nY5i0PBtqiLyRmdwWXBy-tifRlmp7NJcB~QcslEXl5NhOTQhgqP~ZyxD6BAyWPGhwpKnPfjLwc1B4g0U9xd1r8Z9dZTdKrNKXpQAfHQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+		box-shadow: rgb(181, 66, 33) 0px 0px 0px 1px inset;
+		position: absolute;
+		width: 282px;
+		height: 393px;
+		left: 836px;
+		top: 345px;
+	}
+</style>
