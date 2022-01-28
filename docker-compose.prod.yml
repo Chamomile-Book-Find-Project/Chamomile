@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  db:
+
+  backend:
+    build: 
+      context: ./back-end
+  
+  frontend:
+    build: 
+      context: ./front-end
+
+
+  nginx:
+    build: ./nginx
+    port: 
+      - 80:8080 
+
+
+  volumes: 
+    
