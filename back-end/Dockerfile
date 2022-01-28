@@ -11,5 +11,6 @@ RUN pip3 install flask
 # 컨테이너 back-end에 넣어줬으니, 해당 디렉토리 work 
 WORKDIR /back-end 
 
-# CMD 를 활용해 flask run 실행 
-CMD [ "python3", "-m", "flask", "run", "--host=0.0.0.0"]
+COPY . /back-end/
+
+
