@@ -1,3 +1,52 @@
 version: '3'
 
 # 해당 부분 아직 데이터 자체가 구현이 안되었기에 채울 내용이없음, 그렇기에 데이터베이스 구축 끝나면 작성할 예정 
+
+
+services:
+  db: 
+    image: mongo:latest
+    volumes:
+      - mongo_configdb: /data/configdb
+      - mongo_db: /data/db
+
+    prots: 
+      # 채워야함
+
+
+
+  backend: 
+    build: 
+      context: ./backend
+      args:
+        Flask_ALLOWD_HOSTS : "*"
+        Flaks_SECRET_KEY : "*"
+        Flask_CORS_ORIGIN_WHITELIS: "*"
+
+    command: flask run 
+
+    ports:
+      - 8000:8000
+
+    volumes:
+      - ./backend/:/backend
+    
+    expose:
+      - 8000
+    
+    env_file:
+      - ./settings/dev/.env.dev # env파일 생성해줘야함 
+  
+    depand_on:
+      - db
+
+
+  frontend:
+    build: 
+      context: ./frontend
+    ports: 
+      - 3000:3000
+    container_name: frontend-con
+    restart: always 
+    image: run 
+    stdin_open: true 
