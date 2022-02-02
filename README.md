@@ -4,6 +4,8 @@
 
 ## 예상기간 
 1/28~1/30 : 개발환경 내 Docker 구축 예정 (1/31 : nginx , frontend까지는 Dockerfile 완성 이후 부분에 대한 보강 필요 )
+<br> 
+2/2 : 위 내용에 대한 내용 완료 Docker build up 완료 (하지만 오류 생김) 
 ## 진행방안 
 1/27 : 작성 및 공부를 진행하며 아직 데이터 수집을 해야하기에 이에 따른 Back-end file에 쓸 내용이 없음 + Front도 마찬가지 <br>
 1/31 : requirements로 필요한 내용들을 분리하여 관리해줌으로서 현재 진행중, 더 공부를 하며 채워나가고 있는 중 
@@ -11,6 +13,8 @@
 진행 순서 : 1. 데이터 수집 후, DB 구축 -> DB 제작 -> flask 연결 후 Dockerfile 작성 순으로 가는것이 맞는거같아 보인다. 
 <br> 
 1/28 yml 파일과 , nginx파일에 대한 dockerfile 작성완료 해당부분 점검을 다시 해보긴해야됨 
+<br>
+2/2 : Docker build up 완료 
 
 # Back-end < 김의빈 , 손정민 > 
 ## 진행방안 
