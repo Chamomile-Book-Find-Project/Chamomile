@@ -1,20 +1,19 @@
-FROM node:12
-# 해당 부분은 변경할 예정 
-USER root
+FROM node:latest
 
-COPY . /frontend
+# ports 
+EXPOSE 3000 
+EXPOSE 35729
 
-WORKDIR /frontend 
+# Set working directory 
+WORKDIR /app
 
-# 현재 host ip로 되있는 부분 웹서버 구현 이후, 변경 예정 
-ENV REACT_APP_HOST_IP_ADDRESS $API_URL 
-ENV REACT_APP_BACKEND_URL $REACT_APP_BACKEND_URL 
+ENV PATH /app/node_modules/.bin:$PATH 
 
+COPY package.json /app/package.json 
+COPY package-lock.json /app/package-lock.json 
 RUN npm install 
+RUN npm install react-scripts -g 
 
-COPY . ./
+ADD . /app
 
-RUN npm run build 
-
-# 실행 
-CMD "npm", "run", "dev"
+CMD [ "npm", "start" ]
