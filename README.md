@@ -15,6 +15,8 @@
 1/28 yml 파일과 , nginx파일에 대한 dockerfile 작성완료 해당부분 점검을 다시 해보긴해야됨 
 <br>
 2/2 : Docker build up 완료 backend not module found에 대한 문제 해결 진행해야함
+<br>
+2/3 : Docker build up 전반적으로 다 클리어 ( compose 이후 mongodb 데이터 넣는 부분에 대해서 이야기해봐야할거같음 ) 
 
 # Back-end < 김의빈 , 손정민 > 
 ## 진행방안 
