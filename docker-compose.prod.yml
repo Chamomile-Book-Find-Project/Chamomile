@@ -67,14 +67,3 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
 
-networks:
-  frontend:
-    driver: bridge
-  backend: 
-    driver: bridge
-
-volumes:
-  mongo_db:
-    driver: local 
-  appdata:
-    driver: local

@@ -1,7 +1,8 @@
 from flask import Flask 
-from flask_pymongo import Pymongo 
+from pymongo import MongoClient 
+
+
+client = MongoClient('DATABASE LINK')
+db = client.Book_data_DB 
 
 app = Flask(__name__)
-app.config["MONGO_URI"] = "mongodb://localhost:27017/myDatabase"
-mongo = Pymongo(app)
-
