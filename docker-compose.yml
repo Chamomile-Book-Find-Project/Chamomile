@@ -46,17 +46,15 @@ services:
       - ./frontend/:/app
       - /app/node_modules
 
-  # nginx:
-  #   image: nginx:latest
-  #   container_name: nginx_service
+  nginx:
+    image: nginx:latest
+    container_name: nginx_service
 
-  #   ports:
-  #     - "8080:8080"
-  #   depends_on:
-  #     - backend
-  #     - frontend
-  #   volumes:
-  #     - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+     - "8080:8080"
+    depends_on:
+     - backend
+     - frontend
 
 
 volumes:
@@ -64,3 +62,6 @@ volumes:
 
 
   # mongodb 접속에 대해서 물어보기
+
+
+  # docker-compose exec mongodb bash 

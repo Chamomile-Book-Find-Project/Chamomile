@@ -18,3 +18,10 @@ RUN npm install react-router-dom
 ADD . /app
 
 CMD [ "npm", "start" ]
+
+# 셀러리 , 레비댐 큐  (비동기 처리를 위해 사용)
+
+
+# amazon kinesis  ( kafka 기반)
+
+# RabbitMQ 
