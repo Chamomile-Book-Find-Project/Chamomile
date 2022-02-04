@@ -15,4 +15,3 @@ RUN pip install pillow
 WORKDIR /app 
 ADD . /app
 
-# ModuleNotFoundError: No module named 'flask_pymongo' 에러가뜸 왜지? 

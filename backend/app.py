@@ -1,13 +1,12 @@
 from flask import Flask 
 from pymongo import MongoClient 
 
+app = Flask('__name__')
 
-client = MongoClient('mongodb://')
-db = client.Book_data_DB 
-collections = db.Book_data_DB
-
-app = Flask(__name__)
-
+@app.route('/')
+def index():
+    return 'Hello world!'
 
 
-### dddd
+if __name__ == '__main__':
+    app.run(debug=True)
