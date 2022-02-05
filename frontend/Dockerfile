@@ -1,7 +1,7 @@
 FROM node:latest
 
 # ports 
-EXPOSE 3000 
+EXPOSE 3000
 EXPOSE 35729
 
 # Set working directory 
@@ -25,3 +25,6 @@ CMD [ "npm", "start" ]
 # amazon kinesis  ( kafka 기반)
 
 # RabbitMQ 
+
+
+# sudo docker ps -a  <--- image 확인 
