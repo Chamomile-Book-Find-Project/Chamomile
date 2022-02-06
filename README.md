@@ -19,6 +19,8 @@
 2/3 : Docker build up 전반적으로 다 클리어 ( compose 이후 mongodb 데이터 넣는 부분에 대해서 이야기해봐야할거같음 ) 
 <br>
 2/6 : Docker monogoDB 연결 확인 
+<br> 
+2/7 : Docker container간의 공유 오케스트레이션 진행하였음 
 
 # Back-end < 김의빈 , 손정민 > 
 ## 진행방안 
