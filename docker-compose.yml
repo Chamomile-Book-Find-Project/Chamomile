@@ -51,14 +51,16 @@ services:
     tty: true 
 
   nginx:
-    image: nginx:latest
+    # image: nginx:latest
+    build:
+      context: ./nginx
     container_name: nginx_service
 
     ports:
-     - "8080:8080"
+     - "80:8080"
     
     volumes: #front부분 build 부분 맵핑을 시켜줘야함 
-     - build_file:/var/www/app/build
+     - build_file:/app/build
 
     depends_on:
      - backend

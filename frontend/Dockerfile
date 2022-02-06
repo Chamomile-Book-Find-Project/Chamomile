@@ -18,7 +18,8 @@ RUN npm install -g serve
 
 ADD . /app
 
-CMD [ "serve", "-s" , "build" ]
+# CMD [ "serve", "-s" , "build" ]
+RUN npm run build 
 
 # 셀러리 , 레비댐 큐  (비동기 처리를 위해 사용)
 

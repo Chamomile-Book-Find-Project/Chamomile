@@ -1,6 +1,5 @@
 from flask import Flask, render_template
-from pymongo import MongoClient 
-from elasticsearch import Elasticsearch 
+from pymongo import MongoClient  
 
 # Data Base 
 client = MongoClient('0.0.0.0:27017')
@@ -9,7 +8,7 @@ db = client.Book_data_DB # 데이터 베이스 명
 #results = collection.find()
 
 
-es = Elasticsearch()
+# es = Elasticsearch()
 app = Flask('__name__')
 
 @app.route('/')
