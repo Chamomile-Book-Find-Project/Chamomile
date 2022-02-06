@@ -46,7 +46,9 @@ services:
       - 3000:3000
     volumes:
       - ./frontend/:/app
-      - /app/node_modules
+      - ./frontend/node_modules/:/app/node_modules
+      - build_file:/app/build # build폴더 생성
+    tty: true 
 
   nginx:
     image: nginx:latest
@@ -54,13 +56,17 @@ services:
 
     ports:
      - "8080:8080"
+    
+    volumes: #front부분 build 부분 맵핑을 시켜줘야함 
+     - build_file:/var/www/app/build
+
     depends_on:
      - backend
      - frontend
 
-
 volumes:
   mongodb:
+  build_file:
 
 
   # mongodb 접속에 대해서 물어보기
@@ -70,3 +76,8 @@ volumes:
 
 
   # front 주소값 제대로 다시 주기 
+
+
+  # nginx volumes 부분에 front container 주소 맵핑을 시켜줘야함 
+
+  # docker volume inspect <volume-name> : 특정 volume 상세조회 
