@@ -24,6 +24,7 @@ def main_page():
         image_data.save(os.path.join(app.config['UPLOAD_FOLDER'], image_data.filename))
 
         filename = secure_filename(image_data.filename)  # 파일 안정성 검사 
+        
 
     # open api + elastic search + mongodb 이렇게 세가지 연결해줘야함 
 
