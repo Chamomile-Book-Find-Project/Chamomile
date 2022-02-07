@@ -8,29 +8,30 @@ services:
     restart: unless-stopped
     command: mongod --auth
     volumes:
-      - mongo:./data:/data/db
+      - ./data:/data/db
     env_file:
       - ./settings/prod/.env.db
-    networks:
-      - mongo-compose-networks 
     ports: 
       - 27017:27017
 
-    mongo-express: 
-      container_name: mongo-express 
-      image: mongo-express 
+  mongo-express:
+      image: mongo-express
+      environment:
+        - ME_CONFIG_MONGODB_SERVER=mongo
+        - ME_CONFIG_MONGODB_PORT=27017
+        - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+        - ME_CONFIG_MONGODB_ADMINUSERNAME=${MONGO_ROOT_USER}
+        - ME_CONFIG_MONGODB_ADMINPASSWORD=${MONGO_ROOT_PASSWORD}
+        - ME_CONFIG_MONGODB_AUTH_DATABASE=Book_data_DB
+        - ME_CONFIG_MONGODB_AUTH_USERNAME=${MONGO_ROOT_USER}
+        - ME_CONFIG_MONGODB_AUTH_PASSWORD=${MONGO_ROOT_PASSWORD}
+        - ME_CONFIG_BASICAUTH_USERNAME=${MONGOEXPRESS_LOGIN}
+        - ME_CONFIG_BASICAUTH_PASSWORD=${MONGOEXPRESS_PASSWORD}
       depends_on:
-        - db 
-      networks:
-        - mongo-compose-networks 
-      environment: 
-        - ME_CONFIG_MONGODB_SERVER=mongo_dev
-        - ME_CONFIG_MONGODB_ADMINUSERNAME=root 
-        - ME_CONFIG_BASICAUTH_USERNAME=root
-        - ME_CONFIG_BASICAUTH_PASSWORD=chamomile123
+        - mongo
       ports:
-        - '8081:8081'
-  
+        - "27018:8081"
+    
 
 
   api:
@@ -81,12 +82,6 @@ services:
 volumes:
   mongodb:
   build_file:
-  mongo:
-
-networks:
-  mongo-compose-networks:
-    driver: bridge
-
 
   # mongodb 접속에 대해서 물어보기
 

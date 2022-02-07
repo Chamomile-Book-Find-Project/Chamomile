@@ -15,6 +15,7 @@ RUN npm install
 RUN npm install react-scripts -g 
 RUN npm install react-router-dom 
 RUN npm install -g serve
+RUN npm install axios 
 
 ADD . /app
 
