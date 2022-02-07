@@ -1,15 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
 import Header from "./components/Header";
 import "./App.css";
-import Fileimg from "./components/Fileimg";
+import BookParsing from "./components/bookParsing";
+import InputButton from "./components/inputButton"
 
-function App() {
-  return (
-    <div className="App">
-      <Header></Header>
-      <Fileimg></Fileimg>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+        <div className="App">
+          <Header></Header>
+          <InputButton></InputButton>
+          <BookParsing></BookParsing>
+        </div>
+    );
+  }
 }
 
 export default App;
