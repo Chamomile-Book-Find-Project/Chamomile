@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Logo from "./images/logo.png";
+import Bannerlogo from "./images/Bannerlogo.png";
 
 class Header extends Component {
   render() {
@@ -9,32 +9,34 @@ class Header extends Component {
           width: "100%",
           height: "3rem",
           padding: "0.5rem",
-          backgroundColor: "white",
+          backgroundColor: "#C5CBD6",
           display: "flex",
         }}
       >
         <div
           style={{
             backgroundImage:
-              " linear-gradient(to bottom, #C7DD7A 0%,#FEEFDD 100%)",
-            width: "60px",
-            height: "60px",
+              " linear-gradient(to bottom, #C5CBD6 0%,#839DBB 100%)",
+            height: "5rem",
+            width: "100%",
+            padding: "1rem",
           }}
         >
           <img
-            src={Logo}
+            src={Bannerlogo}
             style={{
-              width: "50px",
               height: "50px",
             }}
             alt="Logoimg"
           />
         </div>
-        <div  style={{
-              width: "50px",
-              height: "50px",
-              color: "black"
-            }}>안</div>
+        <div
+          style={{ 
+            width: "50px",
+            height: "50px",
+            color: "black",
+          }}
+        ></div>
       </div>
     );
   }
