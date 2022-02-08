@@ -4,16 +4,17 @@ services:
 
   mongodb: 
     image: mongo
-    container_name: mongo
+    container_name: mongodb
     restart: unless-stopped
-    command: mongod --auth
+    # command: mongod --auth
+    # command: mongoimport --db Book_data_DB --collection Book_data --type csv --headerline --file DB_txt.csv
     volumes:
       - mongodb:/data/db
+      # - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro # 경로문제 점검해봐야 함 
     env_file:
       - ./settings/prod/.env.db
     ports: 
       - 27000:27017
-
 
   api:
     build: 
@@ -22,10 +23,6 @@ services:
     command: gunicorn --bind 0.0.0.0:5001 app:app 
     ports: 
       - 5001:5001
-    environment:
-      MONGODB_HOST: mongodb
-      MONGODB_USERNAME: root 
-      MONGODB_PASSWORD: chamomile123
     volumes:
       - ./backend/:/app
     depends_on:
@@ -52,17 +49,23 @@ services:
 
     ports:
      - "80:8080"
-    
+     
     volumes: #front부분 build 부분 맵핑을 시켜줘야함 
      - build_file:/app/build
 
     depends_on:
-     - backend
+     - api
      - frontend
-
+    
 volumes:
   mongodb:
   build_file:
+
+networks:
+  api:
+   driver: bridge 
+  nginx_service:
+    driver: bridge
 
   # mongodb 접속에 대해서 물어보기
 
@@ -79,3 +82,5 @@ volumes:
 
 
   # local에 있는 DB가 아닌 현재 지금 container에 새로 올라가있는데 이부분 질문
+
+  # 포트번호 :을 기준으로 왼쪽이 오른쪽으로 변경되는 구조 

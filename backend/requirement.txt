@@ -1,6 +1,4 @@
 flask==1.1.1
 gunicorn==20.0.4
 flask-mongoengine
-flask_cors
-pillow
-dnspython
+pymongo 

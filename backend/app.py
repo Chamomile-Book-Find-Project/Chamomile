@@ -3,19 +3,11 @@ from pymongo import MongoClient
 import os 
 from werkzeug.utils import secure_filename # 파일 안정성 검사 
 
+from logging import FileHandler,WARNING  # 오류 수집 
 
-
-# Data Base 
-client = MongoClient('localhost:27017')
-db = client.Book_data_DB # 데이터 베이스 명 
-collection = db.Book_data
-results = collection.find()
-# es = Elasticsearch()
-
-
-app = Flask('__name__')
+app = Flask('__name__', template_folder='templates')
 app.config['UPLOAD_FOLDER'] = './images' # docker container 상 경로 설정 
-
+# mongo DB 연결 
 @app.route('/', methods=['POST'])
 def main_page():
     # 이미지 업로드 및 저장 
@@ -30,9 +22,20 @@ def main_page():
 
     return jsonify({'success': True, 'file':'Received', 'name': filename })   # file : Received : 어떤 내용인지 찾아봐야함 
 
+@app.route('/data', methods=['GET'])
+def mongoTest():
+    client = MongoClient('mongodb://root:chamomile123@mongodb:27017/')
+    db = client.Book_data_DB # 데이터 베이스 명 
+    collection = db.Book_data
+    results = collection.find()
+    client.close()
+    return render_template('test.html',data=results)
+
+
+
 
 # 이미지 업로드 api 부분은 어느정도 된듯 ,  open api + elastic search + mongodb 이렇게 세가지 연결해줘야함 
     
 if __name__ == '__main__':
-    app.run(port = "5001", debug=True)
+    app.run(host='localhost',port = 5001, debug=True)
 
