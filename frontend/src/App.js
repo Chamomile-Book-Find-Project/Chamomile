@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./components/Header";
 import "./App.css";
 import BookParsing from "./components/bookParsing";
-import InputButton from "./components/inputButton"
+import InputButton from "./components/InputButton"
 
 class App extends React.Component {
   render() {
