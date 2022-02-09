@@ -2,10 +2,9 @@ version: '3'
 
 services: 
   elasticsearch:
+    container_name: elasticsearch
     build:
       context: elasticsearch/
-      args:
-        ELK_VERSION: $ELK_VERSION
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro,z
       - elasticsearch:/usr/share/elasticsearch/data:z
@@ -13,37 +12,31 @@ services:
       - "9200:9200"
       - "9300:9300"
     environment:
-      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+      ES_JAVA_OPTS: "-Xmx1024m -Xms1024m" # 자바 메모리
       ELASTIC_PASSWORD: chamomile123
-      discovery.type: single-node
+      discovery.type:
     networks:
       - elk
 
   logstash:
+    container_name: logstash
     build:
       context: logstash/
-      args:
-        ELK_VERSION: $ELK_VERSION
     volumes:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro,z
-      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro,z
+      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro, z
     ports:
       - "5044:5044"
-      - "5000:5000/tcp"
-      - "5000:5000/udp"
       - "9600:9600"
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
     networks:
       - elk
-    depends_on:
-      - elasticsearch
 
   kibana:
+    container_name: kibana
     build:
       context: kibana/
-      args:
-        ELK_VERSION: $ELK_VERSION
     volumes:
       - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro,z
     ports:
