@@ -1,6 +1,7 @@
 import { useState } from "react";
 import React, { Component, useRef } from "react";
 import Bannerlogo from "./images/Bannerlogo.png";
+import "./Button.css";
 
 function Header() {
   const photoInput = useRef();
@@ -12,7 +13,8 @@ function Header() {
     <main className="container">
     <div
         style={{
-          width: "100%",
+          width: "105%",
+          height: "3rem",
           backgroundColor: "#C5CBD6",
           display: "flex",
           position: "fixed",
@@ -28,14 +30,22 @@ function Header() {
           }}
           onClick={switchstate}
       >
-           <img
-            src={Bannerlogo}
-            style={{
-              height: "50px",
-            }}
-            alt="Logoimg"
-          />
-      </div>
+        <div class="sizeChange">
+            {/* <ul> */}
+              {/* <li> */}
+              <a href="#">
+                <img
+                  src={Bannerlogo}
+                  style={{
+                    height: "50px",
+                  }}
+                  alt="Logoimg"
+                />
+              </a>
+              {/* </li> */}
+            {/* </ul> */}
+          </div>
+        </div>
       <div
           style={{ 
             width: "50px",

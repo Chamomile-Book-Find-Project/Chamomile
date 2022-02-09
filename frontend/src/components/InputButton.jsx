@@ -1,11 +1,11 @@
 import { useState } from "react";
 import React, { Component, useRef } from "react";
 import CameraIcon from "./images/cameraIcon.png";
+import "./Button.css";
 
 function InputButton() {
   const photoInput = useRef();
   const handleUploadButtonClick = () => photoInput.current?.click();
-
   const [imageSrc, setImageSrc] = useState("");
   const encodeFileToBase64 = (fileBlob) => {
     const reader = new FileReader();
@@ -19,30 +19,35 @@ function InputButton() {
   };
   return (
     <main className="container">
-      <div
+      <div 
         style={{
           width: "100%",
           height: "100%",
-          padding: "8rem",
+          padding: "6rem",
           display: "flex",
         }}
       >
         <div
           style={{
-            width: "6rem",
-            height: "6rem",
+            width: "8rem",
+            height: "8rem",
             color: "black",
             cursor: "pointer",
           }}
           onClick={handleUploadButtonClick}
         >
-          <img
-            src={CameraIcon}
-            style={{
-              height: "50px",
-            }}
-            alt="CameraButton"
-          />
+          <div className="box1">
+            <div class="sizeChange">
+                 <a href="#">
+                    <img
+                      src={CameraIcon}
+                      style={{
+                      height: "50px",
+                      }}
+                    alt="CameraButton"/>
+                  </a>
+              </div>
+            </div>
         </div>
         <input
           type="file"
