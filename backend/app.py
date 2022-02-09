@@ -1,10 +1,15 @@
 from flask import Flask, render_template, request, jsonify
 from pymongo import MongoClient  
+from flask_cors import CORS
 import os 
 from werkzeug.utils import secure_filename # 파일 안정성 검사 
 
+
+
 app = Flask('__name__', template_folder='templates')
 app.config['UPLOAD_FOLDER'] = './images' # docker container 상 경로 설정 
+
+CORS(app, resources={r'*':{'origins':'http://localhost:3000'}}) # Front과의 연결 요청 
 
 # DataBase connect
 client = MongoClient('mongodb://root:chamomile123@mongodb:27017/')
@@ -43,13 +48,3 @@ def mongoTest():
 if __name__ == '__main__':
     app.run(host='localhost',port = 5001, debug=True)
 
-
-
-"""
-현재 완료 : mongo 연동화 작업 완료 
-
-
-kibana : elastic search 시각화 
-
-filebit 
-"""

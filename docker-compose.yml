@@ -1,6 +1,57 @@
 version: '3'
 
-services:
+services: 
+  elasticsearch:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    volumes:
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro,z
+      - elasticsearch:/usr/share/elasticsearch/data:z
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+      ELASTIC_PASSWORD: chamomile123
+      discovery.type: single-node
+    networks:
+      - elk
+
+  logstash:
+    build:
+      context: logstash/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    volumes:
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro,z
+      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro,z
+    ports:
+      - "5044:5044"
+      - "5000:5000/tcp"
+      - "5000:5000/udp"
+      - "9600:9600"
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+
+  kibana:
+    build:
+      context: kibana/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    volumes:
+      - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro,z
+    ports:
+      - "5601:5601"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
 
   mongodb: 
     image: mongo
@@ -10,7 +61,7 @@ services:
     # command: mongoimport --db Book_data_DB --collection Book_data --type csv --headerline --file DB_txt.csv
     volumes:
       - mongodb:/data/db
-    #   - ./mongo-init.js:/db/data/mongo-init.js:ro # 경로문제 점검해봐야 함 
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro # 경로문제 점검해봐야 함 
     env_file:
       - ./settings/prod/.env.db
     ports: 
@@ -56,11 +107,15 @@ services:
     depends_on:
      - api
      - frontend
+
+networks:
+  elk:
+    driver: bridge
     
 volumes:
   mongodb:
   build_file:
-  
+  elasticsearch:
 
   # mongodb 접속에 대해서 물어보기
 
