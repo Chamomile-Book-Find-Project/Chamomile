@@ -13,9 +13,9 @@ function Header() {
     <div
         style={{
           width: "100%",
-          height: "3rem",
           backgroundColor: "#C5CBD6",
           display: "flex",
+          position: "fixed",
         }}
       >
       <div

@@ -1,6 +1,8 @@
 import axios from "axios";
 import Book from "./Book";
 import React, { Components, useState, useEffect } from "react";
+import "./Button.css";
+
 
 function BookParsing() {
   const [books, setBooks] = useState(null);
@@ -26,8 +28,8 @@ function BookParsing() {
     fetchBooks();
   }, []);
 
-  if (loading) return <div>로딩중..</div>;
-  if (error) return <div>에러가 발생했습니다</div>;
+  if (loading) return <div className="box2"><div>로딩중..</div></div>;
+  if (error) return <div className="box2"><div>에러가 발생했습니다</div></div>;
 
   // 아직 books가 받아와 지지 않았을 때는 아무것도 표시되지 않도록 해줍니다.
   if (!books) return null;
@@ -35,19 +37,25 @@ function BookParsing() {
   // 드디어 books가 성공적으로 받아와 진 상태입니다.
   return (
     <>
-      <ul>
-        {books.map((book) => (
-          <Book
-            key={book.Title}
-            Title={book.Title}
-            Writer={book.Writer}
-            Book_made={book.Book_made}
-            sell_price={book.sell_price}
-            image_uri={book.image_uri}
-          />
-        ))}
-      </ul>
-      <button onClick={fetchBooks}>다시 불러오기</button>
+    <div className="box2">
+            <div class="sizeChange">
+                 <a href="#">
+                    <ul>
+                      {books.map((book) => (
+                        <Book
+                          key={book.Title}
+                          Title={book.Title}
+                          Writer={book.Writer}
+                          Book_made={book.Book_made}
+                          sell_price={book.sell_price}
+                          image_uri={book.image_uri}
+                        />
+                      ))}
+                    </ul>
+                    <button onClick={fetchBooks}>다시 불러오기</button>
+                   </a>
+              </div>
+          </div>
     </>
   );
 }
