@@ -3,10 +3,15 @@ from pymongo import MongoClient
 import os 
 from werkzeug.utils import secure_filename # 파일 안정성 검사 
 
-from logging import FileHandler,WARNING  # 오류 수집 
-
 app = Flask('__name__', template_folder='templates')
 app.config['UPLOAD_FOLDER'] = './images' # docker container 상 경로 설정 
+
+# DataBase connect
+client = MongoClient('mongodb://root:chamomile123@mongodb:27017/')
+db = client.Book_data_DB # 데이터 베이스 명 
+collection = db.Book_data
+results = collection.find()
+
 # mongo DB 연결 
 @app.route('/', methods=['POST'])
 def main_page():
@@ -22,12 +27,11 @@ def main_page():
 
     return jsonify({'success': True, 'file':'Received', 'name': filename })   # file : Received : 어떤 내용인지 찾아봐야함 
 
+
+# 데이터 확인 구간 
 @app.route('/data', methods=['GET'])
 def mongoTest():
-    client = MongoClient('mongodb://root:chamomile123@mongodb:27017/')
-    db = client.Book_data_DB # 데이터 베이스 명 
-    collection = db.Book_data
-    results = collection.find()
+    global client, db, collection, results
     client.close()
     return render_template('test.html',data=results)
 
@@ -39,3 +43,13 @@ def mongoTest():
 if __name__ == '__main__':
     app.run(host='localhost',port = 5001, debug=True)
 
+
+
+"""
+현재 완료 : mongo 연동화 작업 완료 
+
+
+kibana : elastic search 시각화 
+
+filebit 
+"""

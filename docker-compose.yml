@@ -10,7 +10,7 @@ services:
     # command: mongoimport --db Book_data_DB --collection Book_data --type csv --headerline --file DB_txt.csv
     volumes:
       - mongodb:/data/db
-      # - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro # 경로문제 점검해봐야 함 
+    #   - ./mongo-init.js:/db/data/mongo-init.js:ro # 경로문제 점검해봐야 함 
     env_file:
       - ./settings/prod/.env.db
     ports: 
@@ -60,12 +60,7 @@ services:
 volumes:
   mongodb:
   build_file:
-
-networks:
-  api:
-   driver: bridge 
-  nginx_service:
-    driver: bridge
+  
 
   # mongodb 접속에 대해서 물어보기
 
