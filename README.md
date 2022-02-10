@@ -26,6 +26,8 @@
 2/7 : Docker container간의 공유 오케스트레이션 진행하였음 
 <br> 
 2/9 : MongoDB 연결 문제 해결 
+<br>
+2/10 : 전반적 아키텍쳐 수정 MongoDB -> elasticsearch , logstash , kibana를 이용한 데이터 검색으로 변경 현재 logstash에 csv파일을 입히는 작업 진행중, 문제점에 대한 현재 파악중 
 
 # Back-end < 김의빈 , 손정민 > 
 ## 진행방안 
