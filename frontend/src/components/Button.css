@@ -42,7 +42,7 @@ li{ list-style: none; } /* 기호제거 */
 
 .box2 {
   width: 420px;
-  height: 400px;
+  height: 800px;
   background: rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   float: right;
@@ -50,18 +50,43 @@ li{ list-style: none; } /* 기호제거 */
   /* text-align: center; */
 }
 
-.hoverBox {
-  width: 420px;
-  height: 400px;
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-  float: center;
-  margin-right: 0px;
-  /* text-align: center; */
-}
-
-/* CSS변화가 있을때 시간차를 줌 */
+/* CSS변화가 있을때 시간차를 줌(커서 올라가면) */
 .sizeChange img{ transition: 0.3s; }
 .sizeChange a:hover img, .sizeChange a:focus img{ /* a태그에 마우스를 올렸을 때 */
   transform: scale(1.2);
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+.mount3{ animation: 3s ease-in-out loadEffect3; }
+
+@keyframes loadEffect3 {
+    0%{
+        opacity: 0;
+        transform: translateY(-300px);
+    }
+    50%{
+        opacity: 0.5;
+        transform: translateY(30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.mount2{ animation: 3s ease-in-out loadEffect2; }
+
+@keyframes loadEffect2 {
+    0%{
+        opacity: 0;
+        transform: translateX(-300px);
+    }
+    50%{
+        opacity: 0.5;
+        transform: translateX(30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
 }

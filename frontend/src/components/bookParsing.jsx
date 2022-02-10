@@ -8,7 +8,23 @@ function BookParsing() {
   const [books, setBooks] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+//  start
+  const [mount, setMount] = useState(false);
+    const [effect, setEffect] = useState('mount1');
 
+    // const onClickBtn = () => {
+        
+    //     if(mount){
+    //         setEffect('unmount');
+    //         setTimeout(()=>{     
+    //             setMount(v=> !v);    
+    //         }, 400) 
+    //     }else{
+    //         setEffect('mount1');
+    //         setMount(v=> !v);
+    //     }
+    // };
+// end
   const fetchBooks = async () => {
     try {
       // 요청이 시작 할 때에는 error 와 books 를 초기화하고
@@ -28,8 +44,11 @@ function BookParsing() {
     fetchBooks();
   }, []);
 
-  if (loading) return <div className="box2"><div>로딩중..</div></div>;
-  if (error) return <div className="box2"><div>에러가 발생했습니다</div></div>;
+  if (loading) return <div>로딩중..</div>;
+  if (error) return <div className= "mount2">
+  <div className={`box-wrap ${effect}`}>
+  <div className= "box2"><div>에러가 발생했습니다</div></div></div>
+                        </div>;
 
   // 아직 books가 받아와 지지 않았을 때는 아무것도 표시되지 않도록 해줍니다.
   if (!books) return null;
