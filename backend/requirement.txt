@@ -3,3 +3,4 @@ gunicorn==20.0.4
 flask-mongoengine
 pymongo 
 flask_cors
+elasticsearch == 7.17.0

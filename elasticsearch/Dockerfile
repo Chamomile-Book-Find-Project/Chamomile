@@ -1,4 +1,4 @@
-FROM docker.elastic.co/elasticsearch/elasticsearch:7.9.1
+FROM docker.elastic.co/elasticsearch/elasticsearch:7.17.0
 
 
 # 플러그인 설치 

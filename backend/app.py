@@ -3,13 +3,18 @@ from pymongo import MongoClient
 from flask_cors import CORS
 import os 
 from werkzeug.utils import secure_filename # 파일 안정성 검사 
+from elasticsearch import Elasticsearch
+from elasticsearch import helpers 
 
 
 
 app = Flask('__name__', template_folder='templates')
 app.config['UPLOAD_FOLDER'] = './images' # docker container 상 경로 설정 
 
-CORS(app, resources={r'*':{'origins':'http://localhost:3000'}}) # Front과의 연결 요청 
+CORS(app, resources={r'*':{'origins':'http://localhost:80'}}) # Front(nginx)과의 연결 요청 
+
+# elastic search 
+es = Elasticsearch('http://localhost:9200')
 
 # DataBase connect
 client = MongoClient('mongodb://root:chamomile123@mongodb:27017/')
@@ -39,9 +44,6 @@ def mongoTest():
     global client, db, collection, results
     client.close()
     return render_template('test.html',data=results)
-
-
-
 
 # 이미지 업로드 api 부분은 어느정도 된듯 ,  open api + elastic search + mongodb 이렇게 세가지 연결해줘야함 
     

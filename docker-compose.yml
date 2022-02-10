@@ -12,7 +12,7 @@ services:
       - "9200:9200"
       - "9300:9300"
     environment:
-      ES_JAVA_OPTS: "-Xmx1024m -Xms1024m" # 자바 메모리
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m" # 자바 메모리
       ELASTIC_PASSWORD: chamomile123
       discovery.type:
     networks:
@@ -46,19 +46,30 @@ services:
     depends_on:
       - elasticsearch
 
+
   mongodb: 
     image: mongo
     container_name: mongodb
-    restart: unless-stopped
-    # command: mongod --auth
+    restart: always
     # command: mongoimport --db Book_data_DB --collection Book_data --type csv --headerline --file DB_txt.csv
-    volumes:
-      - mongodb:/data/db
-      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro # 경로문제 점검해봐야 함 
     env_file:
       - ./settings/prod/.env.db
+    volumes:
+      - mongodb:/data/db
+     #  - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo/mongo-init.js:ro # 경로문제 점검해봐야 함 
     ports: 
       - 27000:27017
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8111:8081
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=root
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=chamomile123
+
+
 
   api:
     build: 
