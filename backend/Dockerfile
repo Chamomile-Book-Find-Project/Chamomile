@@ -7,10 +7,12 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1 
 ENV DEBUG true 
 
+COPY DB_txt.csv ./DB_txt.csv  
+
 ADD requirement.txt . 
 
 RUN pip install --upgrade pip 
 RUN pip install -r requirement.txt  
 
-WORKDIR /app 
+WORKDIR /app
 ADD . /app

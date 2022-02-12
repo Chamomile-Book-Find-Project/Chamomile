@@ -6,30 +6,15 @@ services:
     build:
       context: elasticsearch/
     volumes:
-      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro,z
-      - elasticsearch:/usr/share/elasticsearch/data:z
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - elasticsearch:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
       - "9300:9300"
     environment:
-      ES_JAVA_OPTS: "-Xmx256m -Xms256m" # 자바 메모리
+      ES_JAVA_OPTS: "-Xmx512m -Xms512m" # 자바 메모리
       ELASTIC_PASSWORD: chamomile123
-      discovery.type:
-    networks:
-      - elk
-
-  logstash:
-    container_name: logstash
-    build:
-      context: logstash/
-      dockerfile: Dockerfile
-    volumes:
-      - ./logstash/config/logstash.yml/:/usr/share/logstash/config/logstash.yml
-      - ./logstash/pipeline/pipeline_mongodb.conf/:/usr/share/logstash/pipeline/pipeline_mongodb.conf
-    environment:
-      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
-    networks:
-      - elk
+      discovery.type: single-node
 
   kibana:
     container_name: kibana
@@ -39,31 +24,24 @@ services:
       - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro,z
     ports:
       - "5601:5601"
-    networks:
-      - elk
     depends_on:
       - elasticsearch
+    environment:
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
 
   mongodb: 
     image: mongo
     container_name: mongodb
     restart: always
-    # command: mongoimport --db Book_data_DB --collection Book_data --type csv --headerline --file DB_txt.csv
     env_file:
       - ./settings/prod/.env.db
     volumes:
       - mongodb:/data/db
-     #  - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo/mongo-init.js:ro # 경로문제 점검해봐야 함 
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro 
     ports: 
       - 27000:27017
-    networks:
-      - elk
-
-  mongo_insert:
-    build:
-      context: ./mongodb 
-      dockerfile: Dockerfile
-
+      
 
   api:
     build: 
@@ -74,9 +52,8 @@ services:
       - 5001:5001
     volumes:
       - ./backend/:/app
-    depends_on:
-      - mongodb
 
+    
 
   frontend:
     build: 
@@ -89,6 +66,7 @@ services:
       - ./frontend/node_modules/:/app/node_modules
       - build_file:/app/build # build폴더 생성
     tty: true 
+
 
   nginx:
     # image: nginx:latest
@@ -106,14 +84,14 @@ services:
      - api
      - frontend
 
-networks:
-  elk:
-    driver: bridge
-    
+
 volumes:
   mongodb:
   build_file:
   elasticsearch:
+
+
+ 
 
   # mongodb 접속에 대해서 물어보기
 
@@ -128,7 +106,12 @@ volumes:
 
   # docker volume inspect <volume-name> : 특정 volume 상세조회 
 
+  # docker system prune
 
   # local에 있는 DB가 아닌 현재 지금 container에 새로 올라가있는데 이부분 질문
 
   # 포트번호 :을 기준으로 왼쪽이 오른쪽으로 변경되는 구조 
+
+  # docker system prune
+
+  # docker inspect <컨테이너 ID> : ip check
