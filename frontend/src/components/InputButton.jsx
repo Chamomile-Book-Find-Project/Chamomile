@@ -3,26 +3,9 @@ import React, { Component, useRef } from "react";
 import CameraIcon from "./images/cameraIcon.png";
 import "./Button.css";
 
-
 function InputButton() {
-
-  //  start
   const [mount, setMount] = useState(false);
-    const [effect, setEffect] = useState('mount1');
-
-    // const onClickBtn = () => {
-        
-    //     if(mount){
-    //         setEffect('unmount');
-    //         setTimeout(()=>{     
-    //             setMount(v=> !v);    
-    //         }, 400) 
-    //     }else{
-    //         setEffect('mount1');
-    //         setMount(v=> !v);
-    //     }
-    // };
-// end
+  const [effect, setEffect] = useState("mount1");
 
   const photoInput = useRef();
   const handleUploadButtonClick = () => photoInput.current?.click();
@@ -39,12 +22,14 @@ function InputButton() {
   };
   return (
     <main className="container">
-      <div 
+      <div
         style={{
           width: "100%",
           height: "100%",
-          padding: "6rem",
+          padding: "9rem",
           display: "flex",
+          flex: 1,
+          flexDirection: "column",
         }}
       >
         <div
@@ -54,23 +39,24 @@ function InputButton() {
             color: "black",
             cursor: "pointer",
           }}
-          
           onClick={handleUploadButtonClick}
         >
-          {/* <div className="box1"> */}
+          <div className="box">
             <div class="sizeChange">
-                 <a href="#">
-                    <img
-                      src={CameraIcon}
-                      style={{
-                      height: "50px",
-                      }}
-                    alt="CameraButton"/>
-                  </a>
-              {/* </div> */}
+              <a href="#">
+              <div><br/><br/><br/></div>
+                <img
+                  src={CameraIcon}
+                  style={{
+                    height: "50px",
+                  }}
+                  alt="CameraButton"
+                />
+              </a>
             </div>
+          </div>
         </div>
-        
+
         <input
           type="file"
           onChange={(e) => {
@@ -83,11 +69,24 @@ function InputButton() {
         />
 
         <div className="preview">
-          {imageSrc && <div className= "mount3">
-          <div className={`box-wrap ${effect}`}>
-            <div className= "box1"><img src={imageSrc} alt="preview-img" width={"198px"} height={"293px"}/></div></div></div>}
+          {imageSrc && (
+            <div className="mount3">
+              <div className={`box-wrap ${effect}`}>
+                <div className="box1">
+                <div><br/><br/></div>
+                  <img
+                    src={imageSrc}
+                    alt="preview-img"
+                    width={"198px"}
+                    height={"293px"}
+                    // flex= {1}
+                    // flexDirection={ "column"}
+                  />
+                </div>
+              </div>
+            </div>
+          )}
         </div>
-      
       </div>
     </main>
   );

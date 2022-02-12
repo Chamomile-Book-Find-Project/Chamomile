@@ -3,7 +3,17 @@
   background-color: #C5CBD6;
   min-height: 100vh;
 }
-
+@media (max-width: 1500px) {
+  .App {
+    min-height: 170vh;
+  } 
+}
+@media (max-width: 1000px) {
+  .App {
+    min-height: 210vh;
+  } 
+}
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -32,4 +42,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

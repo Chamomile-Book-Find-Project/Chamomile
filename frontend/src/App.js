@@ -3,8 +3,7 @@ import Header from "./components/Header";
 import "./App.css";
 import BookParsing from "./components/bookParsing";
 import InputButton from "./components/InputButton";
-import Container from "./components/Container"
-
+// import Container from "./components/Container"
 
 class App extends React.Component {
   render() {
@@ -13,7 +12,7 @@ class App extends React.Component {
           <Header></Header>
           <InputButton></InputButton>
           <BookParsing></BookParsing>
-          <Container></Container>
+          {/* <Container></Container> */}
         </div>
     );
   }
