@@ -25,7 +25,7 @@ app.config['UPLOAD_FOLDER'] = './images' # docker container 상 경로 설정
 client = MongoClient('mongodb://root:chamomile123@mongodb:27017/')
 db = client.BookDB # 데이터 베이스 명 
 collection = db.Book_data
-results = collection.find()
+results = collection.find({})
 
 # import csv in Database (MongoDB & ElasticSearch)
 # mongo DB 
@@ -47,12 +47,17 @@ else:
     print('connection successful')
 
 actions = []
-for data_index in tqdm(results, total= db.connection.count()):
+for data_index in tqdm(results, total= len(list(results))):
     data_index.pop('_id')
     action = {
         "index": {
-                    "_index": 'Book',
-                    "_type": 'info',
+                    "Category" : data_index['Category'],
+                    "Title" : data_index['Title'],
+                    "Writer" : data_index['Writer'],
+                    "Book_made": data_index['Book_made'],
+                    "Sell_price" : data_index['Sell_price'],
+                    "Image_uri" : data_index['Image_uri']
+
                 }
     }
     actions.append(action)
@@ -60,8 +65,8 @@ for data_index in tqdm(results, total= db.connection.count()):
 
 request_body = { 
     "settings" : { 
-        "number_of_shards": 1,
-        "number_of_replicas": 0
+        "number_of_shards": 3,
+        "number_of_replicas": 1
     }
 }
 
