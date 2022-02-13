@@ -106,7 +106,7 @@ def data():
 
 @app.route('/data/upload/search')
 def search():
-    # 이부분에 api 내용 옮겨담기 
+    # 이부분에 api 내용 옮겨담기 fdfd
     api_url = 'https://0k7t1bylkc.apigw.ntruss.com/' \
               'custom/v1/14174/5de3c9ce2fd1434efa8cf011811303cf21bbe4941c8e28cd1ff433873ed56d6c/general'
     secret_key = 'ZGdXQWlqVld1ZFdkWXJCYlJFYnloc0NaRGRkaU5UTHQ='
