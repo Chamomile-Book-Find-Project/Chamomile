@@ -1,9 +1,12 @@
-import { useState } from "react";
-import React, { Component, useRef } from "react";
+import React, { useRef, useState } from "react";
 import CameraIcon from "./images/cameraIcon.png";
 import "./Button.css";
+import axios from "axios";
 
 function InputButton() {
+  const [files, setFiles] = useState({
+    imageURL: "",
+  });
   const [mount, setMount] = useState(false);
   const [effect, setEffect] = useState("mount1");
 
@@ -20,6 +23,22 @@ function InputButton() {
       };
     });
   };
+
+  const handleUploadImage = (event) => {
+    setFiles(event.target.files);
+    console.log(files);
+
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append("file", files[0]);
+
+    axios.post("http://localhost:80/upload", formData).then((res) => {
+      //주소 아직 안 됨
+      console.log(res.statusText);
+    });
+  };
+
   return (
     <main className="container">
       <div
@@ -44,7 +63,11 @@ function InputButton() {
           <div className="box">
             <div class="sizeChange">
               <a href="#">
-              <div><br/><br/><br/></div>
+                <div>
+                  <br />
+                  <br />
+                  <br />
+                </div>
                 <img
                   src={CameraIcon}
                   style={{
@@ -56,24 +79,30 @@ function InputButton() {
             </div>
           </div>
         </div>
-
-        <input
-          type="file"
-          onChange={(e) => {
-            encodeFileToBase64(e.target.files[0]);
-          }}
-          accept="image/jpg,impge/png,image/jpeg,image/gif"
-          multiple
-          ref={photoInput}
-          style={{ display: "none" }}
-        />
-
+        <form method="post" onSubmit={handleUploadImage}>
+          <input
+            type="file"
+            onChange={(e) => {
+              encodeFileToBase64(e.target.files[0]);
+            }}
+            accept="image/jpg,impge/png,image/jpeg,image/gif"
+            multiple
+            ref={photoInput}
+            style={{ display: "none" }}
+          />
+          <div>
+            <button>Upload</button>
+          </div>
+        </form>
         <div className="preview">
           {imageSrc && (
             <div className="mount3">
               <div className={`box-wrap ${effect}`}>
                 <div className="box1">
-                <div><br/><br/></div>
+                  <div>
+                    <br />
+                    <br />
+                  </div>
                   <img
                     src={imageSrc}
                     alt="preview-img"
