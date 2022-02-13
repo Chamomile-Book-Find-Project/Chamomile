@@ -51,71 +51,63 @@ function InputButton() {
           flexDirection: "column",
         }}
       >
-        <div
-          style={{
-            width: "8rem",
-            height: "8rem",
-            color: "black",
-            cursor: "pointer",
+        <div className="box">
+          <div class="sizeChange">
+            <a href="#">
+              <div>
+                <br />
+                <br />
+                <br />
+              </div>
+              <form method="post" onSubmit={handleUploadImage}>
+              <img
+                src={CameraIcon}
+                style={{
+                  height: "50px",
+                  cursor: "pointer",
+                }}
+                alt="CameraButton"
+                onClick={handleUploadButtonClick}
+              />
+              <button>Upload</button>
+              </form>
+            </a>
+          </div>
+        </div>
+      </div>
+
+        <input
+          type="file"
+          onChange={(e) => {
+            encodeFileToBase64(e.target.files[0]);
           }}
-          onClick={handleUploadButtonClick}
-        >
-          <div className="box">
-            <div class="sizeChange">
-              <a href="#">
+          accept="image/jpg,impge/png,image/jpeg,image/gif"
+          multiple
+          ref={photoInput}
+          style={{ display: "none" }} //업로드 버튼 커스터마이징할 수 있게 본래의 버튼 안 보이도록
+        />
+
+      <div className="preview">
+        {imageSrc && (
+          <div className="mount3">
+            <div className={`box-wrap ${effect}`}>
+              <div className="box1">
                 <div>
-                  <br />
                   <br />
                   <br />
                 </div>
                 <img
-                  src={CameraIcon}
-                  style={{
-                    height: "50px",
-                  }}
-                  alt="CameraButton"
+                  src={imageSrc}
+                  alt="preview-img"
+                  width={"198px"}
+                  height={"293px"}
+                  // flex= {1}
+                  // flexDirection={ "column"}
                 />
-              </a>
-            </div>
-          </div>
-        </div>
-        <form method="post" onSubmit={handleUploadImage}>
-          <input
-            type="file"
-            onChange={(e) => {
-              encodeFileToBase64(e.target.files[0]);
-            }}
-            accept="image/jpg,impge/png,image/jpeg,image/gif"
-            multiple
-            ref={photoInput}
-            style={{ display: "none" }}
-          />
-          <div>
-            <button>Upload</button>
-          </div>
-        </form>
-        <div className="preview">
-          {imageSrc && (
-            <div className="mount3">
-              <div className={`box-wrap ${effect}`}>
-                <div className="box1">
-                  <div>
-                    <br />
-                    <br />
-                  </div>
-                  <img
-                    src={imageSrc}
-                    alt="preview-img"
-                    width={"198px"}
-                    height={"293px"}
-                    // flex= {1}
-                    // flexDirection={ "column"}
-                  />
-                </div>
               </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </main>
   );
