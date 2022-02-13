@@ -1,6 +1,6 @@
 import axios from "axios";
 import Book from "./Book";
-import React, { Components, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Button.css";
 
 function BookParsing() {
@@ -57,8 +57,8 @@ function BookParsing() {
                   Title={book.Title}
                   Writer={book.Writer}
                   Book_made={book.Book_made}
-                  sell_price={book.sell_price}
-                  image_uri={book.image_uri}
+                  Sell_price={book.Sell_price}
+                  Image_uri={book.Image_uri}
                 />
               ))}
             </ul>

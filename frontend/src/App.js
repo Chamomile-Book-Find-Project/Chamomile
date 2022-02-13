@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import "./App.css";
-import BookParsing from "./components/bookParsing";
+import BookParsing from "./components/BookParsing";
 import InputButton from "./components/InputButton";
 // import Container from "./components/Container"
 
