@@ -15,7 +15,12 @@ services:
       ES_JAVA_OPTS: "-Xmx512m -Xms512m" # 자바 메모리
       ELASTIC_PASSWORD: chamomile123
       discovery.type: single-node
-    
+    healthcheck:
+      test: curl --silent http://elasticsearch:9200 >/dev/null; if [[ $$? == 52 ]]; then echo 0; else echo 1; fi
+      interval: 30s
+      timeout: 10s
+      retries: 5
+        
 
   kibana:
     container_name: kibana
@@ -25,11 +30,12 @@ services:
       - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro,z
     ports:
       - "5601:5601"
-    depends_on:
-      - elasticsearch
     environment:
       ELASTICSEARCH_URL: http://elasticsearch:9200
       ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
 
   mongodb: 
     image: mongo
@@ -42,7 +48,12 @@ services:
       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro 
     ports: 
       - 27000:27017
-      
+    healthcheck:
+      test: echo 'db.stats().ok' | mongo mongodb:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
 
   api:
     build: 
@@ -54,7 +65,10 @@ services:
     volumes:
       - ./backend/:/app
     depends_on:
-      - elasticsearch
+      elasticsearch:
+        condition: service_healthy
+      mongodb:
+        condition: service_healthy
 
     
 

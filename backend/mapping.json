@@ -1,0 +1,26 @@
+   
+{
+    "mappings": {
+        "properties": {
+            "Category": {
+                "type": "text"
+            },
+            "Title": {
+                "type": "text"
+            },
+            "Writer": {
+                "type": "text"
+            },
+            "Book_made": {
+                "type": "text"
+            },
+            "Sell_price": {
+                "type": "text"
+            },
+            "Image_uri": {
+                "type": "text"
+            }
+            
+        }
+    }
+}
