@@ -7,6 +7,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1 
 ENV DEBUG true 
 
+COPY images ./images 
 COPY DB_txt.csv ./DB_txt.csv  
 
 ADD requirement.txt . 
