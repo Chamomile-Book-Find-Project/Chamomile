@@ -4,9 +4,6 @@ import "./Button.css";
 import axios from "axios";
 
 function InputButton() {
-  const [files, setFiles] = useState({
-    imageURL: "",
-  });
   const [mount, setMount] = useState(false);
   const [effect, setEffect] = useState("mount1");
 
@@ -16,6 +13,7 @@ function InputButton() {
   const encodeFileToBase64 = (fileBlob) => {
     const reader = new FileReader();
     reader.readAsDataURL(fileBlob);
+
     return new Promise((resolve) => {
       reader.onload = () => {
         setImageSrc(reader.result);
@@ -23,19 +21,24 @@ function InputButton() {
       };
     });
   };
+  
+  const [files, setFiles] = useState("");
 
   const handleUploadImage = (event) => {
-    setFiles(event.target.files);
-    console.log(files);
 
-    event.preventDefault();
+    event.preventDefault(); //얘는 새로고침 방지
 
     const formData = new FormData();
     formData.append("file", files[0]);
 
-    axios.post("http://localhost:80/upload", formData).then((res) => {
-      //주소 아직 안 됨
-      console.log(res.statusText);
+    fetch("http://api:001/data/upload", {
+      method: "POST",
+      body: formData,
+    }).then((response) => {
+      response.json().then((body) => {
+        setFiles(`http://api:001/data/upload/${body.file}`);
+        //주소 아직 안 됨
+      });
     });
   };
 
@@ -53,13 +56,11 @@ function InputButton() {
       >
         <div className="box">
           <div class="sizeChange">
-            <a href="#">
               <div>
                 <br />
                 <br />
                 <br />
               </div>
-              <form method="post" onSubmit={handleUploadImage}>
               <img
                 src={CameraIcon}
                 style={{
@@ -69,24 +70,20 @@ function InputButton() {
                 alt="CameraButton"
                 onClick={handleUploadButtonClick}
               />
-              <button>Upload</button>
-              </form>
-            </a>
           </div>
         </div>
       </div>
-
         <input
           type="file"
           onChange={(e) => {
             encodeFileToBase64(e.target.files[0]);
+            handleUploadImage(e)
           }}
           accept="image/jpg,impge/png,image/jpeg,image/gif"
           multiple
           ref={photoInput}
           style={{ display: "none" }} //업로드 버튼 커스터마이징할 수 있게 본래의 버튼 안 보이도록
         />
-
       <div className="preview">
         {imageSrc && (
           <div className="mount3">

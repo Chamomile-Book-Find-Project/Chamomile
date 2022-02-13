@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 
 //화면에 보여져야 하는 값들 정리해서 넘겨주는 것
 
-function Book({Title, Writer, Book_made, Sell_price, Image_uri}){
+function Book({title, writer, bookMade, sellPrice, imageUri}){
+    console.log(imageUri)
     return(
         <div class="Book__data">
-            <h3 class="Book__title">{Title}</h3>
-            <h5 class="Book__writer">{Writer}</h5>
-            <h7 class="Book__made">{Book_made}</h7>
-            <h9 class="Book__Sell__price">{Sell_price}</h9>
-            <h11 class="Book__Image__uri">{Image_uri}</h11>
+            <h3 class="Book__title">{title}</h3>
+            <h5 class="Book__writer">{writer}</h5>
+            <h7 class="Book__made">{bookMade}</h7>
+            <h9 class="Book__Sell__price">{sellPrice}</h9>
+            <img class="Book__Image__uri" src={imageUri} alt='책이미지'/>
         </div>
     );
 }
