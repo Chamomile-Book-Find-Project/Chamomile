@@ -62,15 +62,21 @@ function InputButton() {
           flexDirection: "column",
         }}
       >
-        <div className="box">
+        <div
+          className="box"
+          style={{
+            position: "relative",
+          }}
+        >
           <div class="sizeChange">
             <a href="#">
-              <div>
-                <br />
-              </div>
               <img
                 src={CameraIcon}
                 style={{
+                  position: "absolute",
+                  top: "49%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
                   height: "70px",
                   cursor: "pointer",
                 }}
@@ -97,16 +103,23 @@ function InputButton() {
         {imageSrc && (
           <div className="mount3">
             <div className={`box-wrap ${effect}`}>
-              <div className="box1">
-                <div>
-                  <br />
-                  <br />
-                </div>
+              <div
+                className="box1"
+                style={{
+                  position: "relative",
+                }}
+              >
                 <img
                   src={imageSrc}
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    width: "198px",
+                    height: "293px",
+                  }}
                   alt="preview-img"
-                  width={"198px"}
-                  height={"293px"}
+
                   // flex= {1}
                   // flexDirection={ "column"}
                 />

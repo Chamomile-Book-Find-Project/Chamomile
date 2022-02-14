@@ -22,6 +22,7 @@ function Header() {
       >
         <div
           style={{
+            position: "relative",
             backgroundImage:
               " linear-gradient(to bottom, #C5CBD6 0%,#839DBB 100%)",
             height: "5rem",
@@ -37,6 +38,10 @@ function Header() {
               <img
                 src={Bannerlogo}
                 style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "44%",
+                  transform: "translate(-50%, -50%)",
                   height: "50px",
                 }}
                 alt="Logoimg"
@@ -46,13 +51,7 @@ function Header() {
             {/* </ul> */}
           </div>
         </div>
-        <div
-          style={{
-            width: "50px",
-            height: "50px",
-            color: "black",
-          }}
-        ></div>
+        </div>
         <input
           type="file"
           onChange={(e) => {
@@ -61,7 +60,6 @@ function Header() {
           style={{ display: "none" }}
         />
         {switchOn === true ? window.location.reload() : null}
-      </div>
     </main>
   );
 }
