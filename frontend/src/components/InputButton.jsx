@@ -25,7 +25,6 @@ function InputButton() {
   const [files, setFiles] = useState("");
 
   const handleUploadImage = (event) => {
-
     event.preventDefault(); //얘는 새로고침 방지
     const file = event.target.files[0];
 
@@ -33,22 +32,22 @@ function InputButton() {
     formData.append("file", file);
 
     const API_UPLOAD_URL = "http://localhost:5001/data/upload";
-    axios.post(API_UPLOAD_URL, formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    })
+    axios
+      .post(API_UPLOAD_URL, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
       .then((res) => {
-        console.log('Test Success:', res);
-        console.log('Test Success:', res.data);
+        console.log("Test Success:", res);
+        console.log("Test Success:", res.data);
 
         // setFiles(`http://localhost:5001/data/upload/${body.file}`);
-
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
         console.log(err.response.data);
-      })
+      });
   };
 
   return (
@@ -65,18 +64,20 @@ function InputButton() {
       >
         <div className="box">
           <div class="sizeChange">
-            <div>
-              <br />
-            </div>
-            <img
-              src={CameraIcon}
-              style={{
-                height: "70px",
-                cursor: "pointer",
-              }}
-              alt="CameraButton"
-              onClick={handleUploadButtonClick}
-            />
+            <a href="#">
+              <div>
+                <br />
+              </div>
+              <img
+                src={CameraIcon}
+                style={{
+                  height: "70px",
+                  cursor: "pointer",
+                }}
+                alt="CameraButton"
+                onClick={handleUploadButtonClick}
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -84,8 +85,8 @@ function InputButton() {
         type="file"
         onChange={(e) => {
           encodeFileToBase64(e.target.files[0]);
-          setFiles(e.target.files)
-          handleUploadImage(e)
+          setFiles(e.target.files);
+          handleUploadImage(e);
         }}
         accept="image/jpg,impge/png,image/jpeg,image/gif"
         multiple
@@ -106,8 +107,8 @@ function InputButton() {
                   alt="preview-img"
                   width={"198px"}
                   height={"293px"}
-                // flex= {1}
-                // flexDirection={ "column"}
+                  // flex= {1}
+                  // flexDirection={ "column"}
                 />
               </div>
             </div>

@@ -6,12 +6,12 @@ import PropTypes from 'prop-types';
 function Book({title, writer, bookMade, sellPrice, imageUri}){
     console.log(imageUri)
     return(
-        <div class="Book__data">
-            <h3 class="Book__title">{title}</h3>
-            <h5 class="Book__writer">{writer}</h5>
-            <h7 class="Book__made">{bookMade}</h7>
-            <h9 class="Book__Sell__price">{sellPrice}</h9>
-            <img class="Book__Image__uri" src={imageUri} alt='책이미지'/>
+        <div classname="Book__data">
+            <h1 classname="Book__title">{title}</h1>
+            <h2 classname="Book__writer">{writer}</h2>
+            <h3 classname="Book__made">{bookMade}</h3>
+            <h4 classname="Book__Sell__price">{sellPrice}</h4>
+            <img classname="Book__Image__uri" src={imageUri} alt='책이미지'/>
         </div>
     );
 }

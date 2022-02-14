@@ -1,18 +1,11 @@
 {
   "books": [
     {
-      "Title": "불편한 편의점",
-      "Writer": "김호연",
-      "Book_made": "나무옆의자",
-      "sell_price": "12,600원",
-      "image_uri": "http://image.kyobobook.co.kr/images/book/xlarge/188/x9791161571188.jpg"
-    },
-    {
-      "Title": "달러구트 꿈 백화점",
-      "Writer": "이미예",
-      "Book_made": "팩토리나인",
-      "sell_price": "21,600원",
-      "image_uri": "http://image.kyobobook.co.kr/images/book/xlarge/252/x9791165344252.jpg"
+      "title": "불편한 편의점",
+      "writer": "김호연",
+      "bookMade": "나무옆의자",
+      "sellPrice": "12,600원",
+      "imageUri": "http://image.kyobobook.co.kr/images/book/xlarge/188/x9791161571188.jpg"
     }
   ]
 }

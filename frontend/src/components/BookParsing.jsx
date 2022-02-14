@@ -7,7 +7,6 @@ function BookParsing() {
   const [books, setBooks] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [mount, setMount] = useState(false);
   const [effect, setEffect] = useState("mount1");
 
   const fetchBooks = async () => {
@@ -17,7 +16,7 @@ function BookParsing() {
       setBooks(null);
       // loading 상태를 true 로 바꿉니다.
       setLoading(true);
-      const response = await axios.get("http://localhost:27000");
+      const response = await axios.get("http://localhost:3001/books");
       setBooks(response.data); // 데이터는 response.data 안에 들어있습니다.
     } catch (e) {
       setError(e);
@@ -48,23 +47,18 @@ function BookParsing() {
   return (
     <>
       <div className="box2">
-        <div class="sizeChange">
-          <a href="#">
             <ul>
               {books.map((book) => (
                 <Book
-                  key={book.Title}
-                  Title={book.Title}
-                  Writer={book.Writer}
-                  Book_made={book.Book_made}
-                  Sell_price={book.Sell_price}
-                  Image_uri={book.Image_uri}
+                  key={book.title}
+                  title={book.title}
+                  writer={book.writer}
+                  bookMade={book.bookMade}
+                  sellPrice={book.sellPrice}
+                  imageUri={book.imageUri}
                 />
               ))}
             </ul>
-            <button onClick={fetchBooks}>다시 불러오기</button>
-          </a>
-        </div>
       </div>
     </>
   );
