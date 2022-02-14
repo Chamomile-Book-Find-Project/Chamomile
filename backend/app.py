@@ -1,5 +1,5 @@
 import elasticsearch
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_from_directory, send_file
 from pymongo import MongoClient
 from flask_cors import CORS
 import os 
@@ -13,11 +13,11 @@ import pandas as pd
 import json 
 import base64
 
-app = Flask('__name__')
+app = Flask('__name__', static_url_path = '/images')
 
 CORS(app) # Front(nginx)과의 연결 요청 
 
-app.config['UPLOAD_FOLDER'] = './images' # docker container 상 경로 설정 
+app.config['UPLOAD_FOLDER'] = './images/' # docker container 상 경로 설정 
 
 
 # MongoDB connect
@@ -94,31 +94,37 @@ def main():
 
 @app.route('/data/upload', methods=['POST'])
 def data():
-    if request.method == 'POST' : 
-        image_data = request.files['file']  # 이미지 파일을 불러와서 images폴더에 저장        
-        filename = secure_filename(image_data.filename)  # 파일 안정성 검사 
-        image_data.save(os.path.join(app.config['UPLOAD_FOLDER'], image_data.filename)) #검사 이후, 폴더에 저장 
-        
-        folder_list = os.listdir('./images')
-        
-    return "file_list : {}".format(folder_list) 
+    image_data = request.files['file']  # 이미지 파일을 불러와서 images폴더에 저장        
+    filename = secure_filename(image_data.filename)  # 파일 안정성 검사 
+    image_data.save(os.path.join(app.config['UPLOAD_FOLDER'], image_data.filename)) #검사 이후, 폴더에 저장 
+
+    return jsonify({'success':True, 'file':'Received', 'name': filename})
 
 
-@app.route('/data/upload/search')
+@app.route('/data/image/<path:filename>', methods=['POST'])
+def download_image(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment = True)
+
+
+
+@app.route('/data/result', methods = ['GET'])
+# 이미지 파일 api 전처리 
 def search():
+    for img in os.listdir(app.config['UPLOAD_FOLDER']):
+        image = os.path.join(app.config['UPLOAD_FOLDER'],img)
     # 이부분에 api 내용 옮겨담기 
     api_url = 'https://0k7t1bylkc.apigw.ntruss.com/' \
               'custom/v1/14174/5de3c9ce2fd1434efa8cf011811303cf21bbe4941c8e28cd1ff433873ed56d6c/general'
     secret_key = 'ZGdXQWlqVld1ZFdkWXJCYlJFYnloc0NaRGRkaU5UTHQ='
-    image_file = './images'
-    with open(image_file,'rb') as f:
+    image_file = image
+    with open(image_file, 'rb') as f:
       file_data = f.read()
 
     # api에 요청할 정보
     request_json = {
         'images': [
             {
-                'format': ['jpg','png'],
+                'format': 'jpg',
                 'name': 'demo',
                 'data': base64.b64encode(file_data).decode()
             }
@@ -138,12 +144,15 @@ def search():
     
     # json에서 title 파싱 및 리스트화
     jsonobject = json.loads(response.text)
+
     title_list = []
     for i in range(len(jsonobject['images'][0]['fields'])):
         jsonarray = jsonobject['images'][0]['fields'][i]['inferText']
         title_list.append(jsonarray)
-    return title_list
-
+        if len(title_list) >= 5 : 
+            break 
+    result_text = (" ".join(title_list))
+    return result_text
 
 # 단순 데이터 베이스, 데이터 확인 부분 
 @app.route('/data/mongo', methods=['GET'])
@@ -162,3 +171,6 @@ def elastic():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0' ,port = 5001, debug=True)
+
+
+# docker-compose up --build -d
