@@ -94,11 +94,14 @@ def main():
 
 @app.route('/data/upload', methods=['POST'])
 def data():
-    image_data = request.files['file']  # 이미지 파일을 불러와서 images폴더에 저장        
-    filename = secure_filename(image_data.filename)  # 파일 안정성 검사 
-    image_data.save(os.path.join(app.config['UPLOAD_FOLDER'], image_data.filename)) #검사 이후, 폴더에 저장 
-
-    return jsonify({'success':True, 'file':'Received', 'name': filename})
+    if request.method == 'POST' : 
+        image_data = request.files['file']  # 이미지 파일을 불러와서 images폴더에 저장        
+        filename = secure_filename(image_data.filename)  # 파일 안정성 검사 
+        image_data.save(os.path.join(app.config['UPLOAD_FOLDER'], image_data.filename)) #검사 이후, 폴더에 저장 
+        
+        folder_list = os.listdir('./images')
+        
+    return "file_list : {}".format(folder_list) 
 
 
 @app.route('/data/upload/search')
@@ -131,9 +134,16 @@ def search():
         'Content-Type': 'application/json'
     }
 
-    response = requests.request("POST", api_url, headers=headers, data=payload)
+    response = requests.request("POST", api_url, headers=headers, data=payload) #ocr응답
+    
+    # json에서 title 파싱 및 리스트화
+    jsonobject = json.loads(response.text)
+    title_list = []
+    for i in range(len(jsonobject['images'][0]['fields'])):
+        jsonarray = jsonobject['images'][0]['fields'][i]['inferText']
+        title_list.append(jsonarray)
+    return title_list
 
-    return response.text
 
 # 단순 데이터 베이스, 데이터 확인 부분 
 @app.route('/data/mongo', methods=['GET'])
