@@ -94,14 +94,11 @@ def main():
 
 @app.route('/data/upload', methods=['POST'])
 def data():
-    if request.method == 'POST' : 
-        image_data = request.files['file']  # 이미지 파일을 불러와서 images폴더에 저장        
-        filename = secure_filename(image_data.filename)  # 파일 안정성 검사 
-        image_data.save(os.path.join(app.config['UPLOAD_FOLDER'], image_data.filename)) #검사 이후, 폴더에 저장 
-        
-        folder_list = os.listdir('./images')
-        
-    return "file_list : {}".format(folder_list) 
+    image_data = request.files['file']  # 이미지 파일을 불러와서 images폴더에 저장        
+    filename = secure_filename(image_data.filename)  # 파일 안정성 검사 
+    image_data.save(os.path.join(app.config['UPLOAD_FOLDER'], image_data.filename)) #검사 이후, 폴더에 저장 
+
+    return jsonify({'success':True, 'file':'Received', 'name': filename})
 
 
 @app.route('/data/upload/search')

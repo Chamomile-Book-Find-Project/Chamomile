@@ -21,25 +21,47 @@ function InputButton() {
       };
     });
   };
-  
+
   const [files, setFiles] = useState("");
 
   const handleUploadImage = (event) => {
 
     event.preventDefault(); //얘는 새로고침 방지
+    const file = event.target.files[0];
 
     const formData = new FormData();
-    formData.append("file", files[0]);
+    formData.append("file", file);
 
-    fetch("http://api:001/data/upload", {
-      method: "POST",
-      body: formData,
-    }).then((response) => {
-      response.json().then((body) => {
-        setFiles(`http://api:001/data/upload/${body.file}`);
-        //주소 아직 안 됨
-      });
-    });
+    const API_UPLOAD_URL = "http://localhost:5001/data/upload";
+    axios.post(API_UPLOAD_URL, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    })
+      .then((res) => {
+        console.log('Test Success:', res);
+        console.log('Test Success:', res.data);
+
+        // setFiles(`http://localhost:5001/data/upload/${body.file}`);
+
+      })
+      .catch(err => {
+        console.log(err);
+        console.log(err.response.data);
+      })
+    // fetch("http://localhost:5001/data/upload", {
+    //   method: "POST",
+    //   body: formData,
+    // }).then((response) => {
+    //   console.log('Test Success:', response);
+    //   response.json().then((body) => {
+    //     console.log('Test body: ', body)
+    //     setFiles(`http://localhost:5001/data/upload/${body.file}`);
+    //     //주소 아직 안 됨
+    //   });
+    // }).catch(err => {
+    //   console.log('Test: ', err)
+    // });
   };
 
   return (
@@ -56,34 +78,35 @@ function InputButton() {
       >
         <div className="box">
           <div class="sizeChange">
-              <div>
-                <br />
-                <br />
-                <br />
-              </div>
-              <img
-                src={CameraIcon}
-                style={{
-                  height: "50px",
-                  cursor: "pointer",
-                }}
-                alt="CameraButton"
-                onClick={handleUploadButtonClick}
-              />
+            <div>
+              <br />
+              <br />
+              <br />
+            </div>
+            <img
+              src={CameraIcon}
+              style={{
+                height: "50px",
+                cursor: "pointer",
+              }}
+              alt="CameraButton"
+              onClick={handleUploadButtonClick}
+            />
           </div>
         </div>
       </div>
-        <input
-          type="file"
-          onChange={(e) => {
-            encodeFileToBase64(e.target.files[0]);
-            handleUploadImage(e)
-          }}
-          accept="image/jpg,impge/png,image/jpeg,image/gif"
-          multiple
-          ref={photoInput}
-          style={{ display: "none" }} //업로드 버튼 커스터마이징할 수 있게 본래의 버튼 안 보이도록
-        />
+      <input
+        type="file"
+        onChange={(e) => {
+          encodeFileToBase64(e.target.files[0]);
+          setFiles(e.target.files)
+          handleUploadImage(e)
+        }}
+        accept="image/jpg,impge/png,image/jpeg,image/gif"
+        multiple
+        ref={photoInput}
+        style={{ display: "none" }} //업로드 버튼 커스터마이징할 수 있게 본래의 버튼 안 보이도록
+      />
       <div className="preview">
         {imageSrc && (
           <div className="mount3">
@@ -98,8 +121,8 @@ function InputButton() {
                   alt="preview-img"
                   width={"198px"}
                   height={"293px"}
-                  // flex= {1}
-                  // flexDirection={ "column"}
+                // flex= {1}
+                // flexDirection={ "column"}
                 />
               </div>
             </div>
