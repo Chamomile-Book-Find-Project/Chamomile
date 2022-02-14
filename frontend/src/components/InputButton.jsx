@@ -49,19 +49,6 @@ function InputButton() {
         console.log(err);
         console.log(err.response.data);
       })
-    // fetch("http://localhost:5001/data/upload", {
-    //   method: "POST",
-    //   body: formData,
-    // }).then((response) => {
-    //   console.log('Test Success:', response);
-    //   response.json().then((body) => {
-    //     console.log('Test body: ', body)
-    //     setFiles(`http://localhost:5001/data/upload/${body.file}`);
-    //     //주소 아직 안 됨
-    //   });
-    // }).catch(err => {
-    //   console.log('Test: ', err)
-    // });
   };
 
   return (
@@ -70,7 +57,7 @@ function InputButton() {
         style={{
           width: "100%",
           height: "100%",
-          padding: "9rem",
+          // padding: "9rem",
           display: "flex",
           flex: 1,
           flexDirection: "column",
@@ -80,13 +67,11 @@ function InputButton() {
           <div class="sizeChange">
             <div>
               <br />
-              <br />
-              <br />
             </div>
             <img
               src={CameraIcon}
               style={{
-                height: "50px",
+                height: "70px",
                 cursor: "pointer",
               }}
               alt="CameraButton"
