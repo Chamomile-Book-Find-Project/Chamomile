@@ -62,21 +62,12 @@ function InputButton() {
           flexDirection: "column",
         }}
       >
-        <div
-          className="box"
-          style={{
-            position: "relative",
-          }}
-        >
+        <div className="box">
           <div class="sizeChange">
             <a href="#">
               <img
                 src={CameraIcon}
                 style={{
-                  position: "absolute",
-                  top: "49%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
                   height: "70px",
                   cursor: "pointer",
                 }}
@@ -117,8 +108,6 @@ function InputButton() {
                     left: "50%",
                     width: "198px",
                     height: "293px",
-                    transform: "translate(-50%, -50%)",
-                    cursor: "pointer",
                   }}
                   alt="preview-img"
 
