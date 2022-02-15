@@ -1,6 +1,7 @@
 import axios from "axios";
 import Book from "./Book";
 import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom"
 import "./Button.css";
 
 function BookParsing() {
@@ -16,9 +17,11 @@ function BookParsing() {
       setBooks(null);
       // loading 상태를 true 로 바꿉니다.
       setLoading(true);
-      const response = await axios.get("http://localhost:5001/data/check");
+      
+      const response = await axios.post("http://localhost:5001/data/result");
       setBooks(response.data); // 데이터는 response.data 안에 들어있습니다.
     } catch (e) {
+      console.log(e);
       setError(e);
     }
     setLoading(false);
@@ -44,23 +47,23 @@ function BookParsing() {
   if (!books) return null;
 
   // 드디어 books가 성공적으로 받아와 진 상태입니다.
-  return (
-    <>
-      <div className="box2">
-            <ul>
-              {books.map((book) => (
-                <Book
-                  Category={book.Category}
-                  Title={book.title}
-                  Writer={book.writer}
-                  BookMade={book.bookMade}
-                  SellPrice={book.sellPrice}
-                  ImageUri={book.imageUri}
+return (
+  <div>
+    <div className="books">
+          <ul>
+            {books && books.result.map((book) => (
+              <Book
+                Category={book.Category}
+                Title={book.Title}
+                Writer={book.Writer}
+                BookMade={book.Bookmade}
+                SellPrice={book.Sellprice}
+                ImageUri={book.ImageUri}
                 />
               ))}
-            </ul>
-      </div>
-    </>
+          </ul>
+    </div>
+  </div>
   );
 }
 //button 클릭하면 API 다시 받아옴
