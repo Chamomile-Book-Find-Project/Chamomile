@@ -117,6 +117,8 @@ function InputButton() {
                     left: "50%",
                     width: "198px",
                     height: "293px",
+                    transform: "translate(-50%, -50%)",
+                    cursor: "pointer",
                   }}
                   alt="preview-img"
 
