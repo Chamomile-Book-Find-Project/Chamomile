@@ -38,10 +38,6 @@ function Header() {
               <img
                 src={Bannerlogo}
                 style={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "44%",
-                  transform: "translate(-50%, -50%)",
                   height: "50px",
                 }}
                 alt="Logoimg"
