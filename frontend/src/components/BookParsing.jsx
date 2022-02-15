@@ -50,12 +50,12 @@ function BookParsing() {
             <ul>
               {books.map((book) => (
                 <Book
-                  key={book.title}
-                  title={book.title}
-                  writer={book.writer}
-                  bookMade={book.bookMade}
-                  sellPrice={book.sellPrice}
-                  imageUri={book.imageUri}
+                  Category={book.Category}
+                  title={book.Tiitle}
+                  writer={book.Writer}
+                  bookMade={book.Bookmade}
+                  sellPrice={book.Sellprice}
+                  imageUri={book.ImageUri}
                 />
               ))}
             </ul>

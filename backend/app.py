@@ -2,7 +2,7 @@ from gettext import find
 import elasticsearch
 from flask import Flask, render_template, request, jsonify, send_from_directory, send_file
 from pymongo import MongoClient
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 import os 
 from werkzeug.utils import secure_filename # 파일 안정성 검사 
 from elasticsearch import Elasticsearch, helpers 
@@ -16,7 +16,7 @@ import base64
 
 app = Flask('__name__', static_url_path = '/images')
 
-CORS(app) # Front(nginx)과의 연결 요청 
+CORS(app, resources={r"/*" : {"origins" : "*"}}) # Front(nginx)과의 연결 요청 
 
 app.config['UPLOAD_FOLDER'] = './images/' # docker container 상 경로 설정 
 
@@ -140,7 +140,7 @@ def search(image_data):
 
 # Text Data Search 
 def search_result():
-    with open('./images/r_text.txt','r', encoding='utf-8') as file:
+    with open('./search_text/r_text.txt','r', encoding='utf-8') as file:
         r_text = file.read()
     docs = es.search(
             index = 'book_idx' , 
@@ -182,15 +182,19 @@ def main():
     return 'Backend-server Connect'
 
 
-@app.route('/data/return', methods=['POST'])
+@app.route('/data/return', methods=['GET','POST'])
 def data():
     image_import()
-    text_file = search(app.config['UPLOAD_FOLDER'])
-    result = search_result(text_file)
+    search(app.config['UPLOAD_FOLDER'])
+    result = search_result()
 
     return jsonify(result)
 
+@app.route('/data/check', methods =['GET','POST'])
+def test():
+    result = search_result()
 
+    return jsonify({"search" : result})
 
 # 단순 데이터 베이스, 데이터 확인 부분 
 @app.route('/data/mongo', methods=['GET'])
