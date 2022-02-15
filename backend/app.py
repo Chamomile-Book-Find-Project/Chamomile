@@ -85,13 +85,14 @@ def es_import() :
     es = My_Elasticsearch()
     es.Insert("book_idx",data)
 
+es_import()
+
 def image_import():
     image_data = request.files['file']  # 이미지 파일을 불러와서 images폴더에 저장        
     filename = secure_filename(image_data.filename)  # 파일 안정성 검사  
     return image_data.save(os.path.join(app.config['UPLOAD_FOLDER'], image_data.filename)) #검사 이후, 폴더에 저장 
 
 
-# Image Upload
 def search(image_data):
     for img in os.listdir(image_data):
         image = os.path.join(image_data,img)
@@ -146,9 +147,10 @@ def search_result():
             index = 'book_idx' , 
             body = {
                 "query" : {
-                    "match" : {
-                        "Title" : r_text,
-                        # "fields" : ["Title", "Writer"]
+                    "multi_match" : {
+                        "query" : r_text,
+                        "fields" : ["Title", "Writer","Bookmade"],
+                        "boost" : 1.0
 
                     }
                 }
@@ -170,7 +172,7 @@ def search_result():
         )
 
     result_dic = {
-        "result" : e_result
+        "books" : e_result
     }
     
     return result_dic
@@ -203,12 +205,6 @@ def mongo():
     
     return render_template('test.html',data=results)
 
-
-@app.route('/data/elastic')
-def elastic():
-    global My_MongoDB, My_Elasticsearch, es_import
-    es_import()
-    return 'Data Import!'
 
 
 if __name__ == '__main__':
