@@ -31,7 +31,7 @@ function InputButton() {
     const formData = new FormData();
     formData.append("file", file);
 
-    const API_UPLOAD_URL = "http://localhost:5001/data/upload";
+    const API_UPLOAD_URL = "http://localhost:5001/data/return";
     axios
       .post(API_UPLOAD_URL, formData, {
         headers: {
