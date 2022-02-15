@@ -16,7 +16,7 @@ function BookParsing() {
       setBooks(null);
       // loading 상태를 true 로 바꿉니다.
       setLoading(true);
-      const response = await axios.get("localhost:5001/data/return");
+      const response = await axios.get("http://localhost:5001/data/check");
       setBooks(response.data); // 데이터는 response.data 안에 들어있습니다.
     } catch (e) {
       setError(e);
@@ -51,11 +51,11 @@ function BookParsing() {
               {books.map((book) => (
                 <Book
                   Category={book.Category}
-                  Title={book.Tiitle}
-                  Writer={book.Writer}
-                  BookMade={book.Bookmade}
-                  SellPrice={book.Sellprice}
-                  ImageUri={book.ImageUri}
+                  Title={book.title}
+                  Writer={book.writer}
+                  BookMade={book.bookMade}
+                  SellPrice={book.sellPrice}
+                  ImageUri={book.imageUri}
                 />
               ))}
             </ul>
