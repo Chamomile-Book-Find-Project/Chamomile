@@ -172,7 +172,7 @@ def search_result():
         )
 
     result_dic = {
-        "books" : e_result
+        "books" : e_result[0]
     }
     
     return result_dic
