@@ -4,7 +4,7 @@ import CameraIcon from "./images/cameraIcon.png";
 import "./Button.css";
 import axios from "axios";
 
-function InputButton() {
+function InputButton(setinput) {
   const [mount, setMount] = useState(false);
   const [effect, setEffect] = useState("mount1");
 
@@ -33,7 +33,7 @@ function InputButton() {
     formData.append("file", file);
 
     const API_UPLOAD_URL = "http://localhost:5001/data/upload";
-    axios
+   axios
       .post(API_UPLOAD_URL, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
@@ -42,6 +42,7 @@ function InputButton() {
       .then((res) => {
         console.log("Test Success:", res);
         console.log("Test Success:", res.data);
+      setinput()
 
         // setFiles(`http://localhost:5001/data/upload/${body.file}`);
       })

@@ -5,7 +5,7 @@ import ReactDOM from "react-dom";
 import "./Button.css";
 import "./BookParsing.css";
 
-function BookParsing() {
+function BookParsing(status) {
   const [books, setBooks] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -18,7 +18,6 @@ function BookParsing() {
       setBooks(null);
       // loading 상태를 true 로 바꿉니다.
       setLoading(true);
-
       const response = await axios.post("http://localhost:5001/data/result");
       setBooks(response.data); // 데이터는 response.data 안에 들어있습니다.
     } catch (e) {
@@ -29,7 +28,7 @@ function BookParsing() {
   };
 
   useEffect(() => {
-    fetchBooks();
+   status && fetchBooks();
   }, []);
 
   if (loading) return <div>로딩중..</div>;

@@ -7,11 +7,12 @@ import InputButton from "./components/InputButton";
 
 class App extends React.Component {
   render() {
+    const [input, setinput] = usestate(false)
     return (
         <div className="App">
           <Header></Header>
-          <InputButton></InputButton>
-          <BookParsing></BookParsing>
+          <InputButton setinput={()=>setinput(true)}></InputButton>
+           {input && <BookParsing STATUS={input}></BookParsing>}
           {/* <Container></Container> */}
         </div>
     );
