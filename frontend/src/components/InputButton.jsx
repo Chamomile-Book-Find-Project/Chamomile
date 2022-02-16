@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import CameraIcon from "./images/cameraIcon.png";
+// import bookImg from "./images/bookImg.png";
 import "./Button.css";
 import axios from "axios";
 
@@ -31,7 +32,7 @@ function InputButton() {
     const formData = new FormData();
     formData.append("file", file);
 
-    const API_UPLOAD_URL = "http://localhost:5001/data/return";
+    const API_UPLOAD_URL = "http://localhost:5001/data/upload";
     axios
       .post(API_UPLOAD_URL, formData, {
         headers: {
@@ -62,13 +63,42 @@ function InputButton() {
           flexDirection: "column",
         }}
       >
-        <div className="box">
+        {/* 상단의 장식용 박스 */}
+        <div className="topBox">
+          ssssssssssss
+          <div>
+            {/* <img
+              src={bookImg}
+              style={{
+                // position: "absolute",
+                // top: "0%",
+                // left: "50%",
+                width: "55%",
+                height:"300px",
+                // minWidth: "70px",
+                // cursor: "pointer",
+                float: "right",
+                marginBottom: "30px",
+              }} */}
+            {/* /> */}
+          </div>
+        </div>
+        <div
+          className="box"
+          style={{
+            position: "relative",
+          }}
+        >
           <div class="sizeChange">
             <a href="#">
               <img
                 src={CameraIcon}
                 style={{
-                  height: "70px",
+                  position: "absolute",
+                  top: "49%",
+                  left: "50%",
+                  width: "20%",
+                  minWidth: "70px",
                   cursor: "pointer",
                 }}
                 alt="CameraButton"
@@ -92,7 +122,7 @@ function InputButton() {
       />
       <div className="preview">
         {imageSrc && (
-          <div className="mount3">
+          <div className="mount1">
             <div className={`box-wrap ${effect}`}>
               <div
                 className="box1"
@@ -103,18 +133,33 @@ function InputButton() {
                 <img
                   src={imageSrc}
                   style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
                     width: "198px",
                     height: "293px",
-                    transform: "translate(-50%, -50%)"
+                    float: "left",
                   }}
                   alt="preview-img"
-
-                  // flex= {1}
-                  // flexDirection={ "column"}
                 />
+                <div
+                  className="miniBox"
+                  style={{
+                    position: "relative",
+                  }}
+                >
+                  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+                  <br />
+                  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+                  <br />
+                  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+                  <br />
+                  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+                  <br />
+                  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+                  <br />
+                  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+                  <br />
+                  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+                  <br />
+                </div>
               </div>
             </div>
           </div>
