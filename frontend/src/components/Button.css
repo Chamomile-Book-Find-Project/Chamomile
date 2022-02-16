@@ -122,20 +122,6 @@ li {
   }
 }
 
-.miniBox {
-  width: 45%;
-  height: 300px;
-  background-color: rgba(0, 0, 0, 0.0);
-  border-radius: 5px;
-
-  border: 2px solid black;
-  border-radius: 10px;
-
-  margin-left: 5%;
-  margin-top: 40px;
-  text-align: left;
-}
-
 /* CSS변화가 있을때 시간차를 줌(커서 올라가면) */
 .sizeChange img {
   position: absolute;
