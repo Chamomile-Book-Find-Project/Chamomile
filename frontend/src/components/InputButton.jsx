@@ -63,26 +63,6 @@ function InputButton() {
           flexDirection: "column",
         }}
       >
-        {/* 상단의 장식용 박스 */}
-        <div className="topBox">
-          ssssssssssss
-          <div>
-            {/* <img
-              src={bookImg}
-              style={{
-                // position: "absolute",
-                // top: "0%",
-                // left: "50%",
-                width: "55%",
-                height:"300px",
-                // minWidth: "70px",
-                // cursor: "pointer",
-                float: "right",
-                marginBottom: "30px",
-              }}
-            /> */}
-          </div>
-        </div>
         <div
           className="box"
           style={{

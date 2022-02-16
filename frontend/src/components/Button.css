@@ -59,7 +59,7 @@ li {
   border-radius: 5px;
   /* float: left; */
   margin-left: 8%;
-  margin-top: 25px;
+  margin-top: 200px;
   text-align: center;
 }
 
@@ -68,7 +68,7 @@ li {
     width: 60%;
     height: 100px;
     background-color: #c5cbd6;
-    border-radius: 20px;
+    border-radius: 5px;
     margin-left: 19%;
     margin-top: 150px;
     text-align: center;
@@ -94,9 +94,9 @@ li {
     width: 60%;
     height: 380px;
     background-color: #c5cbd6;
-    border-radius: 20px;
+    border-radius: 5px;
     margin-left: 19%;
-    margin-top: 30px;
+    margin-top: 20px;
   }
 }
 .box2 {
@@ -116,9 +116,9 @@ li {
     width: 60%;
     height: 380px;
     background-color: #c5cbd6;
-    border-radius: 20px;
+    border-radius: 5px;
     margin-left: 19%;
-    margin-top: 30px;
+    margin-top: 20px;
   }
 }
 
