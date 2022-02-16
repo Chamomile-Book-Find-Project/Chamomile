@@ -2,8 +2,9 @@ import React, { useRef, useState } from "react";
 import CameraIcon from "./images/cameraIcon.png";
 // import bookImg from "./images/bookImg.png";
 import "./Button.css";
-import axios from "axios";
+import axios from "axios"; 
 
+// 수정 
 function InputButton(setinput) {
   const [mount, setMount] = useState(false);
   const [effect, setEffect] = useState("mount1");
