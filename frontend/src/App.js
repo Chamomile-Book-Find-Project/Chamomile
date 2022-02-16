@@ -15,13 +15,16 @@ class App extends React.Component {
   }
 
   render() {
-    const {input, setinput} = this.state
     return (
       
         <div className="App">
+          <div className="Header">
           <Header></Header>
-          <InputButton setinput={()=>setinput(true)}></InputButton>
-           {input && <BookParsing status={input}></BookParsing>}
+          </div>
+          <div className="Body">
+          <InputButton></InputButton>
+          <BookParsing></BookParsing>
+          </div>
           {/* <Container></Container> */}
         </div>
     );
