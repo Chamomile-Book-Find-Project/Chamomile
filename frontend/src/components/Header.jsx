@@ -24,7 +24,7 @@ function Header() {
           style={{
             position: "relative",
             backgroundImage:
-              " linear-gradient(to bottom, #C5CBD6 0%,#839DBB 100%)",
+            " linear-gradient(to top, #dde5f1 0%,#839DBB 100%)",
             height: "5rem",
             width: "100%",
             padding: "1rem",
