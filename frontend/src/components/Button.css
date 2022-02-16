@@ -162,3 +162,7 @@ li {
         opacity: 1;
     }
 }
+
+.parsingImg{
+  float: left;
+}
