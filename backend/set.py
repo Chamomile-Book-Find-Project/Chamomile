@@ -102,14 +102,13 @@ def search_result():
                 "query" : {
                     "multi_match" : {
                         "query" : r_text,
-                        "fields" : ["Title", "Writer","Bookmade"]
+                        "fields" : ["Category","Title", "Writer","Bookmade"]
                     }
                 }
             }
         )
     result_dic = {}
     e_result = []
-    tag_list = []
     for data in docs['hits']['hits']: 
         e_result.append(
             {
@@ -126,5 +125,6 @@ def search_result():
     result_dic = {
         "result" : result
     }
+ 
     return result_dic
 

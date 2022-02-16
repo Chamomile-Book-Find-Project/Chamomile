@@ -56,8 +56,8 @@ return (
                 Category={book.Category}
                 Title={book.Title}
                 Writer={book.Writer}
-                BookMade={book.Bookmade}
-                SellPrice={book.Sellprice}
+                Bookmade={book.Bookmade}
+                Sellprice={book.Sellprice} 
                 ImageUri={book.ImageUri}
                 />
               ))}

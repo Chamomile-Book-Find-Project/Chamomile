@@ -70,7 +70,7 @@ def main():
     return 'Backend-server Connect'
 
 
-@app.route('/data/return', methods=['POST'])
+@app.route('/data/upload', methods=['POST'])
 def data():
     image_import()
     search(app.config['UPLOAD_FOLDER'])
