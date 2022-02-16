@@ -1,9 +1,9 @@
 import axios from "axios";
 import Book from "./Book";
 import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom"
+import ReactDOM from "react-dom";
 import "./Button.css";
-import "./BookParsing.css"
+import "./BookParsing.css";
 
 function BookParsing() {
   const [books, setBooks] = useState(null);
@@ -18,7 +18,7 @@ function BookParsing() {
       setBooks(null);
       // loading 상태를 true 로 바꿉니다.
       setLoading(true);
-      
+
       const response = await axios.post("http://localhost:5001/data/result");
       setBooks(response.data); // 데이터는 response.data 안에 들어있습니다.
     } catch (e) {
@@ -48,23 +48,28 @@ function BookParsing() {
   if (!books) return null;
 
   // 드디어 books가 성공적으로 받아와 진 상태입니다.
-return (
-  <div>
-    <div className="books">
-          <ul>
-            {books && books.result.map((book) => (
-              <Book
-                Category={book.Category}
-                Title={book.Title}
-                Writer={book.Writer}
-                Bookmade={book.Bookmade}
-                Sellprice={book.Sellprice} 
-                ImageUri={book.ImageUri}
-                />
-              ))}
-          </ul>
+  return (
+    <div>
+      <div className="books">
+        <div className={`box-wrap ${effect}`}>
+          <div className="box2">
+            <ul>
+              {books &&
+                books.result.map((book) => (
+                  <Book
+                    Category={book.Category}
+                    Title={book.Title}
+                    Writer={book.Writer}
+                    Bookmade={book.Bookmade}
+                    Sellprice={book.Sellprice}
+                    ImageUri={book.ImageUri}
+                  />
+                ))}
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
   );
 }
 //button 클릭하면 API 다시 받아옴

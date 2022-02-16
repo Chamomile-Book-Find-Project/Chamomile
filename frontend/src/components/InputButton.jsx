@@ -79,8 +79,8 @@ function InputButton() {
                 // cursor: "pointer",
                 float: "right",
                 marginBottom: "30px",
-              }} */}
-            {/* /> */}
+              }}
+            /> */}
           </div>
         </div>
         <div
@@ -133,33 +133,19 @@ function InputButton() {
                 <img
                   src={imageSrc}
                   style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
                     width: "198px",
                     height: "293px",
+                    transform: "translate(-50%, -50%)",
+                    cursor: "pointer",
                     float: "left",
                   }}
                   alt="preview-img"
+                  // flex= {1}
+                  // flexDirection={ "column"}
                 />
-                <div
-                  className="miniBox"
-                  style={{
-                    position: "relative",
-                  }}
-                >
-                  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-                  <br />
-                  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-                  <br />
-                  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-                  <br />
-                  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-                  <br />
-                  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-                  <br />
-                  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-                  <br />
-                  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-                  <br />
-                </div>
               </div>
             </div>
           </div>
