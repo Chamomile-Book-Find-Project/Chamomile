@@ -4,7 +4,6 @@ from pymongo import MongoClient
 import os 
 from werkzeug.utils import secure_filename # 파일 안정성 검사 
 from elasticsearch import Elasticsearch, helpers 
-
 import requests 
 import uuid 
 import time 
@@ -44,14 +43,12 @@ def elastic_check():
         print('connection successful')
 
 
-
-
 def search(image_data):
     for img in os.listdir(image_data):
         image = os.path.join(image_data,img)
     # 이부분에 api 내용 옮겨담기 
-    api_url = 'https://82ohilq1o4.apigw.ntruss.com/custom/v1/14260/aaf2320646108059a87ab5017a86aee454f5378ed95003dbb2e12f4ca5266e0e/general'
-    secret_key = 'WG1lRHlkRWFDT0pic3RCTFBmSkJqTGtIb3pBWXlzVko='
+    api_url = 'https://1hfof6ae8g.apigw.ntruss.com/custom/v1/14326/f446bbb6d4943d6e3600730801874ac4eb19c46ad02eca19a681856178082f67/general'
+    secret_key = 'WmZsb0VmbnhISGxzR0lTREhueURlUVZKcnJoSE5iaVo='
     image_file = image
     with open(image_file, 'rb') as f:
       file_data = f.read()

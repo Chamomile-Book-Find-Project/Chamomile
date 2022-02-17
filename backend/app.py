@@ -20,7 +20,8 @@ results = collection.find({})
 def image_import():
     image_data = request.files['file']  # 이미지 파일을 불러와서 images폴더에 저장        
     filename = secure_filename(image_data.filename)  # 파일 안정성 검사  
-    return image_data.save(os.path.join(app.config['UPLOAD_FOLDER'], image_data.filename)) #검사 이후, 폴더에 저장 
+    image_data.save(os.path.join(app.config['UPLOAD_FOLDER'], image_data.filename)) #검사 이후, 폴더에 저장 
+    return jsonify({'success' : True , 'file' : 'Received' , 'name' : filename})
 
 # Get mongoDB data
 class My_MongoDB() :
@@ -65,6 +66,7 @@ mongo_input()
 es_import()
 
 
+
 @app.route('/', methods=['GET'])
 def main():
     return 'Backend-server Connect'
@@ -72,11 +74,11 @@ def main():
 
 @app.route('/data/upload', methods=['POST'])
 def data():
-    image_import()
-    search(app.config['UPLOAD_FOLDER'])
+    return image_import()
     
 @app.route('/data/result', methods = ['POST'])
 def result():
+    search(app.config['UPLOAD_FOLDER'])
     return jsonify( search_result() )
 
 @app.route('/data/check', methods =['GET','POST'])
