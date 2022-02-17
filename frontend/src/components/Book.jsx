@@ -15,11 +15,11 @@ function Book({ Category, Title, Writer, Bookmade, Sellprice, ImageUri }) {
         alt="책이미지"
       />
       <div className="miniBox">
-        <h1 classname="Book__Category">Category : {Category}</h1>
-        <h1 classname="Book__title">Title : {Title}</h1>
-        <h1 classname="Book__writer">Writer : {Writer}</h1>
-        <h1 classname="Book__made">Publisher : {Bookmade}</h1>
-        <h1 classname="Book__Sell__price">Price : {Sellprice}</h1>
+        <h1 classname="Book__Category">카테고리 : {Category}</h1>
+        <h1 classname="Book__title">제목 : {Title}</h1>
+        <h1 classname="Book__writer">글쓴이 : {Writer}</h1>
+        <h1 classname="Book__made">출판사 : {Bookmade}</h1>
+        <h1 classname="Book__Sell__price">판매가 : {Sellprice}원</h1>
       </div>
     </div>
   );

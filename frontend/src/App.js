@@ -5,17 +5,12 @@ import BookParsing from "./components/BookParsing";
 import InputButton from "./components/InputButton";
 // import Container from "./components/Container"
    // const [input, setinput] = useState(false)
-class App extends React.Component {
-  constructor (props) {
-    super(props);
-    this.state = { 
-      input : false ,
-      setinput : false
-    };
-  }
 
-  render() {
-    const {input, setinput} = this.state
+
+function App () {
+
+  const [input, setinput] = useState(false)
+
     return (
       
         <div className="App">
@@ -25,7 +20,7 @@ class App extends React.Component {
           {/* <Container></Container> */}
         </div>
     );
-  }
+
 }
 
 export default App;

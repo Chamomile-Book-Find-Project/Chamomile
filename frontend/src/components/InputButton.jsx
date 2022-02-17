@@ -5,7 +5,7 @@ import "./Button.css";
 import axios from "axios"; 
 
 // 수정 
-function InputButton(setinput) {
+function InputButton({setinput}) {
   const [mount, setMount] = useState(false);
   const [effect, setEffect] = useState("mount1");
 
@@ -43,7 +43,7 @@ function InputButton(setinput) {
       .then((res) => {
         console.log("Test Success:", res);
         console.log("Test Success:", res.data);
-      setinput()
+        setinput()
 
         // setFiles(`http://localhost:5001/data/upload/${body.file}`);
       })

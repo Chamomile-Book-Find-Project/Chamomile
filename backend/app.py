@@ -74,8 +74,7 @@ def main():
 def data():
     image_import()
     search(app.config['UPLOAD_FOLDER'])
-
-
+    
 @app.route('/data/result', methods = ['POST'])
 def result():
     return jsonify( search_result() )

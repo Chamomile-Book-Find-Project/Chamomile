@@ -89,8 +89,9 @@ def search(image_data):
             break 
     result_text = (" ".join(title_list))
     with open('search_text/r_text.txt','w',encoding='utf-8') as f:
-        f.write(result_text)
+       f.write(result_text)
     os.remove(image_file)  
+
 
 # Text Data Search 
 def search_result():
