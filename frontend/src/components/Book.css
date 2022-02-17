@@ -18,6 +18,61 @@
   position: "relative";
 } */
 
+/*결과창*/
+
+.box2 { /* B */
+  width: 75%;
+  height: 800px;
+  /* background: rgba(0, 0, 0, 0.5); */
+  background-color : rgba(0,0,0,0);
+  border: 2px solid black;
+  border-radius: 5px;
+  /* float: left; */
+  margin-left: 13%;
+  margin-top: -805px;
+  text-align: center;
+}
+
+@media (max-width: 1000px) {
+  .box2 { /* S */
+    width: 60%;
+    height: 580px;
+    background-color : rgba(0,0,0,0);
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-left: 19%;
+    margin-top: 20px;
+  }
+}
+
+
+
+.miniImg {
+  width: 41%;
+  height: 771px;
+  border: 2px solid black;
+
+  margin-left: 0%;
+  margin-top: -20px;
+  text-align: left;
+
+  position: "relative";
+}
+
+@media (max-width: 1000px) {
+  .miniImg {
+    width: 41%;
+    height: 300px;
+    border: 2px solid black;
+
+    margin-left: 0%;
+    margin-top: -304px;
+    text-align: left;
+
+    position: "relative";
+  }
+}
+
 .miniBox1 {
   width: 56%;
   height: 300px;
@@ -28,49 +83,25 @@
   border-radius: 10px; */
 
   margin-left: 44%;
-  margin-top: 10px;
+  margin-top: -715px;
   text-align: left;
 
   position: "relative";
 }
+
+
 @media (max-width: 1000px) {
   .miniBox1 {
     width: 56%;
   height: 300px;
 
-  border: 0px solid black;
-
-  margin-left: 44%;
-  margin-top: 10px;
-  text-align: left;
-
-  position: "relative";
-  }
-}
-
-
-.miniImg {
-  width: 41%;
-  height: 771px;
   border: 2px solid black;
 
-  margin-left: 0%;
-  margin-top: -304px;
+  margin-left: 44%;
+  margin-top: 100px;
   text-align: left;
 
   position: "relative";
-}
-@media (max-width: 1000px) {
-  .miniImg {
-    width: 41%;
-    height: 300px;
-    border: 0px solid black;
-
-    margin-left: 0%;
-    margin-top: -304px;
-    text-align: left;
-
-    position: "relative";
   }
 }
 
@@ -79,4 +110,31 @@
   float: "left";
   height: 300px;
   margin-top: 40px;
+}
+
+/*결과창*/
+
+.box2 { /* B */
+  width: 75%;
+  height: 800px;
+  /* background: rgba(0, 0, 0, 0.5); */
+  background-color : rgba(0,0,0,0);
+  border: 2px solid black;
+  border-radius: 5px;
+  /* float: left; */
+  margin-left: 13%;
+  margin-top: -805px;
+  text-align: center;
+}
+
+@media (max-width: 1000px) {
+  .box2 { /* S */
+    width: 60%;
+    height: 580px;
+    background-color : rgba(0,0,0,0);
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-left: 19%;
+    margin-top: 20px;
+  }
 }

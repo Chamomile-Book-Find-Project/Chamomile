@@ -9,17 +9,28 @@ function Book({ Category, Title, Writer, Bookmade, Sellprice, ImageUri }) {
   console.log(ImageUri);
   return (
     <div classname="Book__data">
-      <img
-        classname="Book__Image__uri"
-        src={ImageUri}
-        alt="책이미지"
-      />
-      <div className="miniBox">
-        <h1 classname="Book__Category">카테고리 : {Category}</h1>
-        <h1 classname="Book__title">제목 : {Title}</h1>
-        <h1 classname="Book__writer">글쓴이 : {Writer}</h1>
-        <h1 classname="Book__made">출판사 : {Bookmade}</h1>
-        <h1 classname="Book__Sell__price">판매가 : {Sellprice}원</h1>
+      <div className="box2">
+        <div className="miniImg">
+          <img
+            classname="Book__Image__uri"
+            src={ImageUri}
+            // style={{
+            //   position: "absolute",
+            //   top: "50%",
+            //   left: "50%",
+            //   transform: "translate(-50%, -50%)",
+            //   float: "left",
+            // }}
+            alt="책이미지"
+          />
+        </div>
+        <div className="miniBox1">
+          <h1 classname="Book__Category">카테고리 : {Category}</h1>
+          <h1 classname="Book__title">제목 : {Title}</h1>
+          <h1 classname="Book__writer">글쓴이 : {Writer}</h1>
+          <h1 classname="Book__made">출판사 : {Bookmade}</h1>
+          <h1 classname="Book__Sell__price">판매가 : {Sellprice}원</h1>
+        </div>
       </div>
     </div>
   );
