@@ -32,7 +32,7 @@ Etc : Docker, Prometheus, Grafana, Kibana
 ### etc 
 <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
 <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=Docker&logoColor=white"/> 
-<img src="https://img.shields.io/badge/Elasticsearch-#005571?style=for-the-badge&logo=Elasticsearch&logoColor=white">
+<img src="https://img.shields.io/badge/Elasticsearch-005571?style=for-the-badge&logo=Elasticsearch&logoColor=white">
 
 출처: https://byul91oh.tistory.com/214 [개꼬 [: 개발하는 꼬바리]]
 ### Initialization
