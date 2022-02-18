@@ -55,7 +55,7 @@ docker-compose up --build
 
 |          김서진          |         김의빈           |          김주원           |          손정민         |
 | ------------------------| ------------------------ | ------------------------ | ------------------------|  
-|        Front-end        |        Back-end          |       AI -> frontend     |         Back-end        |
+|        Frontend        |        Backend          |       AI -> frontend     |         Backend        |
 |                         |             DB           |                          |         Crawling        |
 |                         |           Server         |                          |                         |                       |                         |                     |                         |                          |                          |                         |
 |                         |       etc Setting        |                          |                         | 
