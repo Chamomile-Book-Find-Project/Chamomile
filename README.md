@@ -19,7 +19,8 @@ Database : MongoDB, ElasticSearch
 Open API : Clova OCR API 
 Etc : Docker, Prometheus, Grafana, Kibana
 ~~~~~~~~~~~~~~~~~~~~~~
-
+|
+|
 ### Initialization
 
 - clone repository
