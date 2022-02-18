@@ -40,8 +40,10 @@ docker-compose up --build
 -----------------
 2022 Silicon Vally Pre Intership program - Team D 
 
+ 
+|  ----------------------- |
 |          김서진          |         김의빈           |          김주원           |          손정민         |
 | ------------------------| ------------------------ | ------------------------ | ------------------------|  
 |        Front-end        |        Back-end          |         frontend         |         Back-end        |
 |                         |        Crawling          |                          |         Crawling        |
-|                         |            DB            |                          |                         |                     |                         |        Server            |                          |                         |  
+|                         |            DB            |                          |                         |                     |                         |          Server          |                          |                         |  
