@@ -7,7 +7,7 @@
   height: 800px;
   /* background: rgba(0, 0, 0, 0.5); */
   background-color : rgba(0,0,0,0);
-  border: 2px solid black;
+  /* border: 2px solid black; */
   border-radius: 5px;
   /* float: left; */
   margin-left: 13%;
@@ -20,7 +20,7 @@
     width: 60%;
     height: 580px;
     background-color : rgba(0,0,0,0);
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 5px;
     margin-left: 19%;
     margin-top: 20px;
@@ -30,7 +30,8 @@
 .miniImg {
   width: 41%;
   height: 771px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
+  background-color : rgba(0,0,0,0.2);
   margin-left: 0%;
   margin-top: 30px;
   text-align: center;
@@ -42,7 +43,8 @@
   .miniImg {
     width: 41%;
     height: 300px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
+    background-color : rgba(0,0,0,0.2);
     margin-left: 0%;
     margin-top: -304px;
     position: "relative";
@@ -55,9 +57,9 @@
 .miniBox1 {
   width: 42%;
   height: 300px;
-  /* background-color: rgba(0, 0, 0, 0); */
+  background-color : rgba(0,0,0,0.2);
+
   /* border-radius: 5px; */
-  border: 2px solid black;
   /* border: 2px solid black;
   border-radius: 10px; */
   margin-left: 46%;
@@ -69,7 +71,7 @@
   .miniBox1 {
     width: 45%;
   height: 300px;
-  border: 2px solid black;
+  background-color : rgba(0,0,0,0.2);
   margin-left: 46%;
   margin-top: 100px;
   text-align: left;
@@ -90,7 +92,7 @@
   height: 800px;
   /* background: rgba(0, 0, 0, 0.5); */
   background-color : rgba(0,0,0,0);
-  border: 2px solid black;
+  /* border: 2px solid black; */
   border-radius: 5px;
   /* float: left; */
   margin-left: 13%;
@@ -102,7 +104,7 @@
     width: 60%;
     height: 580px;
     background-color : rgba(0,0,0,0);
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 5px;
     margin-left: 19%;
     margin-top: 20px;
@@ -116,7 +118,7 @@
   height: 800px;
   /* background: rgba(0, 0, 0, 0.5); */
   background-color : rgba(0,0,0,0);
-  border: 2px solid black;
+  /* border: 2px solid black; */
   border-radius: 5px;
   /* float: left; */
   margin-left: 13%;
@@ -129,7 +131,7 @@
     width: 60%;
     height: 580px;
     background-color : rgba(0,0,0,0);
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 5px;
     margin-left: 19%;
     margin-top: 20px;
