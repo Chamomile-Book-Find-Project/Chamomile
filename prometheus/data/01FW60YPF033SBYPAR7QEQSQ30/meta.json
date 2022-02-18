@@ -1,0 +1,17 @@
+{
+	"ulid": "01FW60YPF033SBYPAR7QEQSQ30",
+	"minTime": 1645164000000,
+	"maxTime": 1645171200000,
+	"stats": {
+		"numSamples": 72962,
+		"numSeries": 5634,
+		"numChunks": 5634
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01FW60YPF033SBYPAR7QEQSQ30"
+		]
+	},
+	"version": 1
+}
