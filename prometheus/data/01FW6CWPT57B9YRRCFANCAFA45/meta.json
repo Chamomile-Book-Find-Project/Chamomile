@@ -1,0 +1,17 @@
+{
+	"ulid": "01FW6CWPT57B9YRRCFANCAFA45",
+	"minTime": 1645171200000,
+	"maxTime": 1645178400000,
+	"stats": {
+		"numSamples": 48525,
+		"numSeries": 2883,
+		"numChunks": 2883
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01FW6CWPT57B9YRRCFANCAFA45"
+		]
+	},
+	"version": 1
+}
