@@ -19,19 +19,10 @@ Database : MongoDB, ElasticSearch
 Open API : Clova OCR API 
 Etc : Docker, Prometheus, Grafana, Kibana
 ~~~~~~~~~~~~~~~~~~~~~~
-|   frontend    |   Backend   |     etc     |   
-|---------------|-------------|-------------|
-|               |  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">           |             |
-|               |             |             | 
-|               |             |             | 
+<img src="https://img.shields.io/badge/flask-#0000?style=for-the-badge&logo=Flask&logoColor=white">
 
-출처: https://young-cow.tistory.com/25 [어린소]
 
-출처: https://young-cow.tistory.com/25 [어린소]
 
-출처: https://young-cow.tistory.com/25 [어린소]
-
-출처: https://young-cow.tistory.com/25 [어린소]
 ### Initialization
 
 - clone repository
