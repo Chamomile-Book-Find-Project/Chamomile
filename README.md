@@ -21,7 +21,7 @@ Etc : Docker, Prometheus, Grafana, Kibana
 ~~~~~~~~~~~~~~~~~~~~~~
 |   frontend    |   Backend   |     etc     |   
 |---------------|-------------|-------------|
-|               |    https://img.shields.io/badge/-Python-000000?style=flat&logo=Python         |             |
+|               |    <a href = "https://img.shields.io/badge/-Python-000000?style=flat&logo=Python"/> </a>         |             |
 |               |             |             | 
 |               |             |             | 
 
