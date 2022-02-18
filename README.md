@@ -28,11 +28,15 @@ Etc : Docker, Prometheus, Grafana, Kibana
 
 ### DataBase 
 <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=MongoDB&logoColor=white"/>
+<img src="https://img.shields.io/badge/Elasticsearch-005571?style=for-the-badge&logo=Elasticsearch&logoColor=white">
 
 ### etc 
 <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
 <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=Docker&logoColor=white"/> 
-<img src="https://img.shields.io/badge/Elasticsearch-005571?style=for-the-badge&logo=Elasticsearch&logoColor=white">
+<img src="https://img.shields.io/badge/NGINX-009639?style=for-the-badge&logo=NGINX&logoColor=white">
+<img src="https://img.shields.io/badge/Gunicorn-499848?style=for-the-badge&logo=Gunicorn&logoColor=white">
+
+
 
 출처: https://byul91oh.tistory.com/214 [개꼬 [: 개발하는 꼬바리]]
 ### Initialization
@@ -60,6 +64,6 @@ docker-compose up --build
 | ------------------------| ------------------------ | ------------------------ | ------------------------|  
 |        Front-end        |        Back-end          |       AI -> frontend     |         Back-end        |
 |                         |        Crawling          |                          |         Crawling        |
-|                         |            DB            |                          |                         |                     |                         |                          |                          |                         |  
+|                         |            DB            |                          |                         |                     | |                         |                          |                          |                         |  
 |                         |          Server          |                          |                         | 
 |                         |       etc Setting        |                          |                         | 
