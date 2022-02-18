@@ -19,7 +19,6 @@ Database : MongoDB, ElasticSearch
 Open API : Clova OCR API 
 Etc : Docker, Prometheus, Grafana, Kibana
 ~~~~~~~~~~~~~~~~~~~~~~
-<img src="https://img.shields.io/badge/flask-#0000?style=for-the-badge&logo=Flask&logoColor=white">
 
 
 
@@ -42,3 +41,7 @@ docker-compose up --build
 -----------------
 2022 Silicon Vally Pre Intership program - Team D 
 
+|          김서진          |         김의빈           |          김주원           |          손정민         |
+| ------------------------| ------------------------ | ------------------------ | ------------------------|  
+|       Front-end         |     Back-end & server    |         frontend         |         Back-end        |
+|                         |                          |                          |                         |
