@@ -13,10 +13,14 @@ Check this out은 이미지 기반 책 정보 검색 웹 서비스로서 사용�
 
 - clone repository
 ~~~~~~~~~~
-$ git clone 
+$ git clone https://github.com/Chamomile-Book-Search-Project/Chamomile.git
+$ cd Chamomile
 ~~~~~~~~~~~~
 
-- Docker 
+- Docker build up 
+~~~~~~~~~~~~~~~~~
+docker-compose up --build
+~~~~~~~~~~~~~~~~
 
 ## Team Chamomile
 -----------------
