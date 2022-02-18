@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "cafe24";      
+  src: url("./font/Cafe24Simplehae.ttf"); 
+}
+
 /* base */
 * {
   padding: 0;
@@ -31,7 +36,7 @@ li {
   position: relative;
   width: 15%;
   height: 450px;
-  background-color : rgba(0,0,0,0.2);
+  background-color : #cdd9eb;
   /* border: 2px solid black; */
   /* float: left; */
   margin-left: 46%;
@@ -43,7 +48,7 @@ li {
   .box { /* S */
     width: 60%;
     height: 100px;
-    background-color : rgba(0,0,0,0.2);
+    background-color : #cdd9eb;
     border: 2px solid black;
     border-radius: 5px;
     margin-left: 19%;
@@ -61,7 +66,7 @@ li {
   width: 25%;
   height: 450px;
   /* background: rgba(0, 0, 0, 0.5); */
-  background-color : rgba(0,0,0,0.2);
+  background-color : #cdd9eb;
   /* border: 2px solid black; */
   border-radius: 5px;
   /* float: left; */
@@ -76,7 +81,7 @@ li {
   .box1 { /* S */
     width: 60%;
     height: 300px;
-    background-color : rgba(0,0,0,0.2);
+    background-color : #cdd9eb;
     /* border: 2px solid black; */
     border-radius: 5px;
     margin-left: 19%;
