@@ -19,13 +19,16 @@ Database : MongoDB, ElasticSearch
 Open API : Clova OCR API 
 Etc : Docker, Prometheus, Grafana, Kibana
 ~~~~~~~~~~~~~~~~~~~~~~
-#### Frontend 
+### Frontend 
 <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
-#### Backend
+
+### Backend
 <img src="https://img.shields.io/badge/flask-000000?style=for-the-badge&logo=flask&logoColor=white">
-#### DataBase 
+
+### DataBase 
 <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=MongoDB&logoColor=white"/></a> &nbsp 
-#### etc 
+
+### etc 
 <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
 <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=Docker&logoColor=white"/> 
 
