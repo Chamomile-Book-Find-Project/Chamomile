@@ -19,8 +19,18 @@ Database : MongoDB, ElasticSearch
 Open API : Clova OCR API 
 Etc : Docker, Prometheus, Grafana, Kibana
 ~~~~~~~~~~~~~~~~~~~~~~
-|
-|
+|   Frontend   |    Backend    |      DB      |
+| ------------ | ------------- | ------------ |  
+| Content Cell | Content Cell  |              |
+| Content Cell | Content Cell  |              |
+
+출처: https://young-cow.tistory.com/25 [어린소]
+
+출처: https://young-cow.tistory.com/25 [어린소]
+
+출처: https://young-cow.tistory.com/25 [어린소]
+
+출처: https://young-cow.tistory.com/25 [어린소]
 ### Initialization
 
 - clone repository
