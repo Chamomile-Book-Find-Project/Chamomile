@@ -9,5 +9,13 @@ Check this out은 이미지 기반 책 정보 검색 웹 서비스로서 사용�
 ### System Architechure
 ![Chamomile drawio (4)](https://user-images.githubusercontent.com/76832303/154666423-e402d5f6-4f3a-4ea7-bd74-204571d3a696.png)
 
+### Initialization
 
+- clone repository
+
+- Docker 
+
+## Team Chamomile
+-----------------
+2022 Silicon Vally Pre Intership program - Team D 
 
