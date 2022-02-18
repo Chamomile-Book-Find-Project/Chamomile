@@ -46,5 +46,5 @@ docker-compose up --build
 | ------------------------| ------------------------ | ------------------------ | ------------------------|  
 |        Front-end        |        Back-end          |       AI -> frontend     |         Back-end        |
 |                         |        Crawling          |                          |         Crawling        |
-|                         |            DB            |                          |                         |                     |                         |          Server          |                          |                         |  
-|                         |                          |                          |                         | 
+|                         |            DB            |                          |                         |                     |                         |                          |                          |                         |  
+|                         |        Server            |                          |                         | 
