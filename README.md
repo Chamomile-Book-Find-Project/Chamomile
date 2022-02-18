@@ -20,6 +20,14 @@ Open API : Clova OCR API
 Etc : Docker, Prometheus, Grafana, Kibana
 ~~~~~~~~~~~~~~~~~~~~~~
 
+|         Frontend         |         Backend          |            etc           | 
+| ------------------------ | ------------------------ | ------------------------ |
+|<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">                          |                          |                          | 
+|                          |    <img src="https://img.shields.io/badge/flask-000000?style=for-the-badge&logo=flask&logoColor=white">                       |                          |
+|                          |                          |                          |
+|                          |                          |                          |
+|                          |                          |                          |
+|                          |                          |                          |
 
 ### Initialization
 
@@ -40,7 +48,7 @@ docker-compose up --build
 -----------------
 2022 Silicon Vally Pre Intership program - Team D 
 
- 
+                              
 
 |          김서진          |         김의빈           |          김주원           |          손정민         |
 | ------------------------| ------------------------ | ------------------------ | ------------------------|  
