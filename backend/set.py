@@ -12,13 +12,13 @@ import json
 import base64
 
 es = Elasticsearch(
-    hosts=['http://elasticsearch:9200'],
-    http_auth=('elastic','chamomile123')
+    hosts=['ELASTIC LINK'],
+    http_auth=('ID / PW')
 )
 
 def mongo_input():
     # MongoDB connect
-    client = MongoClient('mongodb://root:chamomile123@mongodb:27017/')
+    client = MongoClient('MONGO CLIENT LINK')
     db = client.BookDB # 데이터 베이스 명 
     collection = db.Book_data
     results = collection.find({})
@@ -32,8 +32,8 @@ def mongo_input():
 def elastic_check():
     # # elastic search connect
     es = Elasticsearch(
-        hosts=['http://elasticsearch:9200'],
-        http_auth=('elastic','chamomile123')
+        hosts=['MONGO CLIENT LINK'],
+        http_auth=('ID / PW')
     )
 
     # check elasitc connect 
@@ -47,8 +47,8 @@ def search(image_data):
     for img in os.listdir(image_data):
         image = os.path.join(image_data,img)
     # 이부분에 api 내용 옮겨담기 
-    api_url = 'https://1hfof6ae8g.apigw.ntruss.com/custom/v1/14326/f446bbb6d4943d6e3600730801874ac4eb19c46ad02eca19a681856178082f67/general'
-    secret_key = 'WmZsb0VmbnhISGxzR0lTREhueURlUVZKcnJoSE5iaVo='
+    api_url = 'API URL LINk'
+    secret_key = 'Scret_key value'
     image_file = image
     with open(image_file, 'rb') as f:
       file_data = f.read()
