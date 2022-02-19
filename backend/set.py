@@ -10,7 +10,7 @@ import time
 import pandas as pd 
 import json 
 import base64
-
+# 최종수정
 es = Elasticsearch(
     hosts=['ELASTIC LINK'],
     http_auth=('ID / PW')
