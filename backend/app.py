@@ -39,7 +39,7 @@ class My_Elasticsearch() :
     def __init__(self) :
         self.es = Elasticsearch(
         hosts=['Elastic Link'],
-        http_auth=('elastic','chamomile123')
+        http_auth=('ID','PW')
         )
         
     def Search(self, _index, _body) :
@@ -55,11 +55,11 @@ class My_Elasticsearch() :
 
 def es_import() :
     mongodb = My_MongoDB()
-    mongo_data = pd.DataFrame(mongodb.Get_Data("BookDB", "Book_data"))
+    mongo_data = pd.DataFrame(mongodb.Get_Data("DB Name", "Collection"))
     del(mongo_data['_id'])
     data = mongo_data.to_dict('records')
     es = My_Elasticsearch()
-    es.Insert("book_idx",data)
+    es.Insert("index name",data)
 
 elastic_check()
 mongo_input()

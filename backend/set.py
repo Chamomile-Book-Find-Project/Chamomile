@@ -24,7 +24,7 @@ def mongo_input():
     results = collection.find({})
 
     # mongo DB  Data import 
-    data = pd.read_csv('DB_txt.csv')
+    data = pd.read_csv('DB csv')
     data.reset_index(inplace=False)
     data_dict = data.to_dict ("records")
     collection.insert_many(data_dict)
@@ -95,7 +95,7 @@ def search_result():
     with open('./search_text/r_text.txt','r', encoding='utf-8') as file:
         r_text = file.read()
     docs = es.search(
-            index = 'book_idx' , 
+            index = 'elastic index name' , 
             body = {
                 "query" : {
                     "multi_match" : {
