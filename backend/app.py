@@ -12,7 +12,7 @@ app = Flask('__name__', static_url_path = '/images')
 CORS(app, resources={r"/*" : {"origins" : "*"}}) # Front(nginx)과의 연결 요청 
 app.config['UPLOAD_FOLDER'] = './images/' # docker container 상 경로 설정 
 
-client = MongoClient('mongodb://root:chamomile123@mongodb:27017/')
+client = MongoClient('Mongo Link')
 db = client.BookDB # 데이터 베이스 명 
 collection = db.Book_data
 results = collection.find({})
@@ -26,7 +26,7 @@ def image_import():
 # Get mongoDB data
 class My_MongoDB() :
     def __init__(self) :
-        self.client = MongoClient("mongodb://root:chamomile123@mongodb:27017/")
+        self.client = MongoClient("Mongo Link")
 
     def Get_Data(self, db, collection) :
         return self.client[db][collection].find({})
@@ -38,7 +38,7 @@ class My_MongoDB() :
 class My_Elasticsearch() :
     def __init__(self) :
         self.es = Elasticsearch(
-        hosts=['http://elasticsearch:9200'],
+        hosts=['Elastic Link'],
         http_auth=('elastic','chamomile123')
         )
         
@@ -64,7 +64,6 @@ def es_import() :
 elastic_check()
 mongo_input()
 es_import()
-
 
 
 @app.route('/', methods=['GET'])
