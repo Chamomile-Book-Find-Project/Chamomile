@@ -56,7 +56,7 @@ docker-compose up --build
 
 ## Team Chamomile
 -----------------
-2022 Silicon Vally Pre Intership program - Team D 
+2022 성남청년 Silicon Vally Pre Intership program - Team D 
 
                               
 
